@@ -1,4 +1,5 @@
 import { JSX, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Service } from "../../api/service";
 import { Button } from "../../components/button";
 import { Input } from "../../components/input";
@@ -58,14 +59,14 @@ export function ResetPasswordContent(props: IResetPasswordContentProps): JSX.Ele
         <TopNavMenu client={props.client} isLoggedIn={false} maxWidth={1200} />
         <div className="py-8 mx-auto" style={{ maxWidth: "24rem" }}>
           <div className="w-full mx-auto" style={{ minWidth: 256, maxWidth: 416 }}>
-            <div className="mb-4 text-lg font-bold text-center">Set a new password</div>
+            <div className="mb-4 text-lg font-bold text-center">{Translate_text("Set a new password")}</div>
             {isDone ? (
               <div className="flex flex-col items-center">
                 <div className="text-center text-text-secondary">
-                  Password updated! You can now sign in with your new password.
+                  {Translate_text("Password updated! You can now sign in with your new password.")}
                 </div>
                 <a className="mt-4 font-bold underline text-text-link" href="/login">
-                  Back to Liftosaur
+                  {Translate_text("Back to FORJA2.0")}
                 </a>
               </div>
             ) : (

@@ -1,4 +1,5 @@
 import { JSX, useEffect, useRef, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { View, ScrollView, useWindowDimensions, LayoutChangeEvent, PixelRatio } from "react-native";
 import { GroupHeader } from "../../../components/groupHeader";
 import { Dialog_alert } from "../../../utils/dialog";
@@ -310,12 +311,12 @@ function SettingsTab(props: ISettingsTabProps): JSX.Element {
             name="select-all"
             onClick={() => setConfig({ ...config, daysToShow: props.initialDaysToShow })}
           >
-            Select All
+            {Translate_text("Select All")}
           </LinkButton>
         </View>
         <View>
           <LinkButton className="text-sm" name="deselect-all" onClick={() => setConfig({ ...config, daysToShow: [] })}>
-            Deselect All
+            {Translate_text("Deselect All")}
           </LinkButton>
         </View>
       </View>

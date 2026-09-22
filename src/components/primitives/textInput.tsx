@@ -1,6 +1,7 @@
 import { TextInput as RNTextInput, TextInputProps } from "react-native";
 import { forwardRef, JSX, Ref } from "react";
 import { Text_hasSizeClass, Text_resolveFontFamily } from "./text";
+import { Translate_maybe } from "../../i18n/translate";
 
 export type ITextInput = RNTextInput;
 
@@ -21,6 +22,7 @@ export const TextInput = forwardRef(function TextInputInner(
       ref={ref}
       allowFontScaling={false}
       {...props}
+      placeholder={Translate_maybe(props.placeholder)}
       className={className}
       style={[{ fontFamily }, props.style]}
     />

@@ -16,6 +16,7 @@ import { ExerciseImage } from "../exerciseImage";
 import { Tailwind_colors, Tailwind_semantic } from "../../utils/tailwindConfig";
 import { IconMagnifyingGlass } from "../icons/iconMagnifyingGlass";
 import { StringUtils_fuzzySearch } from "../../utils/string";
+import { Translate_searchableName } from "../../i18n/searchableName";
 import { Service } from "../../api/service";
 import { GroupHeader } from "../groupHeader";
 import { IconSpinner } from "../icons/iconSpinner";
@@ -59,7 +60,7 @@ export function ExerciseImageLibraryContent(props: IExerciseImageLibraryContentP
       !trimmedSearch
         ? Exercise_allExpanded({})
         : Exercise_allExpanded({}).filter((e) => {
-            return StringUtils_fuzzySearch(trimmedSearch, e.name.toLowerCase());
+            return StringUtils_fuzzySearch(trimmedSearch, Translate_searchableName(e.name));
           }),
     [trimmedSearch]
   );
@@ -70,7 +71,7 @@ export function ExerciseImageLibraryContent(props: IExerciseImageLibraryContentP
         const exerciseId = getExerciseIdFromImageUrl(img);
         const customExercise = exerciseId ? Exercise_find({ id: exerciseId }, props.settings.exercises) : undefined;
         if (customExercise) {
-          return StringUtils_fuzzySearch(trimmedSearch, customExercise.name.toLowerCase());
+          return StringUtils_fuzzySearch(trimmedSearch, Translate_searchableName(customExercise.name));
         } else {
           return false;
         }

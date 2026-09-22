@@ -1,10 +1,12 @@
-# 🏋 Liftosaur: Open-source powerful weight lifting tracker PWA for coders.
+# 🏋 FORJA2.0: Open-source powerful weight lifting tracker PWA for coders.
+
+FORJA2.0 is the Spanish build of this app. The UI, the exercise names, the muscle names and the built-in program descriptions are in Spanish; see [I18N.md](./I18N.md) for how the catalog works and what is still English.
 
 * Link: https://www.liftosaur.com
 * **[Features roadmap](https://github.com/astashov/liftosaur/discussions)**
 * **[Bugs](https://github.com/astashov/liftosaur/issues)**
 
-<img src="https://raw.github.com/astashov/liftosaur/master/screenshot2.png" alt="Liftosaur Screenshot" width="360" />
+<img src="https://raw.github.com/astashov/liftosaur/master/screenshot2.png" alt="FORJA2.0 Screenshot" width="360" />
 
 It's mobile app, that's available as:
 

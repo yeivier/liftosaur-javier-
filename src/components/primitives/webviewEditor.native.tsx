@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Keyboard, Platform, View } from "react-native";
 import { WebView, WebViewMessageEvent } from "react-native-webview";
 import { NavScreenScrollContext } from "../../navigation/NavScreenScrollContext";
@@ -228,7 +229,7 @@ export function WebviewEditor(props: IWebviewEditorProps): React.JSX.Element {
       {props.error != null && (
         <View className={bannerClass} testID="planner-editor-error">
           <Text className={labelClass}>
-            <Text className={labelClass}>Error: </Text>
+            <Text className={labelClass}>{Translate_text("Error: ")}</Text>
             <Text className={messageClass}>{props.error.message}</Text>
           </Text>
           {customCta != null && <View className="mt-1">{customCta}</View>}

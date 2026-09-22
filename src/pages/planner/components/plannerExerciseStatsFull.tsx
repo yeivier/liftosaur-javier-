@@ -1,4 +1,5 @@
 import { useMemo, useState, type JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { lb } from "lens-shmens";
 import { LinkButton } from "../../../components/linkButton";
 import { ActiveGraphContext, IActiveGraphContext } from "../../../components/activeGraphContext";
@@ -90,7 +91,7 @@ export function PlannerExerciseStatsFull(props: IPlannerExerciseStatsFullProps):
               );
             }}
           >
-            Swap Exercise
+            {Translate_text("Swap Exercise")}
           </LinkButton>
         </div>
         <div className="flex mb-2">

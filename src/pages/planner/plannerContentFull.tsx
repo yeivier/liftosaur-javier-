@@ -1,4 +1,5 @@
 import { JSX, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { lb, lbu, LensBuilder } from "lens-shmens";
 import { Service } from "../../api/service";
 import { Button } from "../../components/button";
@@ -142,7 +143,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
               className="px-4"
               onClick={() => cancel()}
             >
-              Cancel
+              {Translate_text("Cancel")}
             </Button>
             <Button
               disabled={!evaluatedWeeks.success}
@@ -157,7 +158,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
                 }
               }}
             >
-              Apply
+              {Translate_text("Apply")}
             </Button>
           </div>
           <div>
@@ -281,7 +282,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
                 }
               }}
             >
-              Cancel
+              {Translate_text("Cancel")}
             </Button>
             <Button
               disabled={!evaluatedWeeks.success}
@@ -296,7 +297,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
                 }
               }}
             >
-              Apply
+              {Translate_text("Apply")}
             </Button>
           </div>
         </div>
@@ -313,7 +314,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
               exerciseLine={focusedExercise?.exerciseLine}
             />
           ) : (
-            <div className="font-bold">Exercise Stats</div>
+            <div className="font-bold">{Translate_text("Exercise Stats")}</div>
           )}
         </Modal>
       )}
@@ -327,7 +328,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
               evaluatedDay={evalResults[weekIndex][dayIndex]}
             />
           ) : (
-            <div className="font-bold">Day Stats</div>
+            <div className="font-bold">{Translate_text("Day Stats")}</div>
           )}
         </Modal>
       )}
@@ -340,7 +341,7 @@ export function PlannerContentFull(props: IPlannerContentFullProps): JSX.Element
               settings={props.settings}
             />
           ) : (
-            <div className="font-bold">Week Stats</div>
+            <div className="font-bold">{Translate_text("Week Stats")}</div>
           )}
         </Modal>
       )}

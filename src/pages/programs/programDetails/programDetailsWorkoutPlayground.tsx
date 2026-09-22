@@ -1,4 +1,5 @@
 import { JSX, memo, useCallback, useEffect, useRef, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IProgram, ISettings, IUnit } from "../../../types";
 import { MenuItemValue } from "../../../components/menuItemEditable";
 import { ProgramPreviewPlayground } from "../../../components/preview/programPreviewPlayground";
@@ -107,7 +108,7 @@ export const ProgramDetailsWorkoutPlayground = memo((props: IPlaygroundProps): J
                 checked={weeksAsTabs}
                 onChange={() => setWeeksAsTabs((v) => !v)}
               />
-              <span>Show weeks as tabs</span>
+              <span>{Translate_text("Show weeks as tabs")}</span>
             </label>
           )}
           {!weeksAsTabs && (
@@ -153,8 +154,9 @@ export const ProgramDetailsWorkoutPlayground = memo((props: IPlaygroundProps): J
       </div>
       <div className="mx-auto" style={{ display: tab === "playground" ? "block" : "none", maxWidth }}>
         <p className="mx-auto mt-4 mb-4 text-sm text-text-secondary" style={{ maxWidth }}>
-          Enter reps and weight for each set, then tap the checkmark to complete it. Finish the workout day and see how
-          the program adjusts weights, reps, and sets for next time.
+          {Translate_text(
+            "Enter reps and weight for each set, then tap the checkmark to complete it. Finish the workout day and see how the program adjusts weights, reps, and sets for next time."
+          )}
         </p>
         <ProgramPreviewPlayground
           scrollTabZIndex={20}
@@ -175,7 +177,7 @@ export const ProgramDetailsWorkoutPlayground = memo((props: IPlaygroundProps): J
 function UnitSwitcher(props: { currentUnit: IUnit; onUnitChange: (newUnit: IUnit) => void }): JSX.Element {
   return (
     <label className="ml-auto">
-      <span className="mr-2 text-sm font-semibold">Units:</span>
+      <span className="mr-2 text-sm font-semibold">{Translate_text("Units:")}</span>
       <MenuItemValue
         name="Unit"
         setPatternError={() => undefined}

@@ -1,22 +1,22 @@
 ---
 id: api
 title: "REST API"
-shortDescription: "Access your programs and workout history programmatically with the Liftosaur REST API."
+shortDescription: "Access your programs and workout history programmatically with the FORJA2.0 REST API."
 order: 1
 category: "Integrations"
 datePublished: "2026-03-07"
 dateModified: "2026-03-07"
 ---
 
-## What is the Liftosaur API?
+## What is the FORJA2.0 API?
 
-Liftosaur has a REST API that lets you manage your programs and workout history programmatically. You can create programs, log workouts, simulate progressions, and pull stats - all from scripts, apps, or anything that can make HTTP requests.
+FORJA2.0 has a REST API that lets you manage your programs and workout history programmatically. You can create programs, log workouts, simulate progressions, and pull stats - all from scripts, apps, or anything that can make HTTP requests.
 
 Requires a premium subscription.
 
 ## Getting an API Key
 
-1. Open Liftosaur and go to **Settings**
+1. Open FORJA2.0 and go to **Settings**
 2. Tap **API Keys**
 3. Tap **Create API Key** and give it a name
 4. Copy the key - it starts with `lftsk_`
@@ -534,7 +534,7 @@ GET /api/v1/gyms/:gymId/equipment/:id
 
 ### Update Equipment
 
-Equipment configuration drives how Liftosaur rounds prescribed weights during a workout. Only provided fields change; omitted fields keep their current values. Weights are strings like `"45lb"` or `"20kg"`. Out-of-range values are clamped.
+Equipment configuration drives how FORJA2.0 rounds prescribed weights during a workout. Only provided fields change; omitted fields keep their current values. Weights are strings like `"45lb"` or `"20kg"`. Out-of-range values are clamped.
 
 ```
 PUT /api/v1/gyms/:gymId/equipment/:id
@@ -798,7 +798,7 @@ Deletes a single recorded value. Returns `{ "data": { "deleted": true } }`, or `
 
 ## Running a Workout
 
-These endpoints let an external app - a watch app, for instance - run a Liftosaur workout from start to finish. The server runs the program engine, so finishing a workout here advances your next-workout pointer, runs your progressions, updates your 1RMs and writes history exactly as if you had done it in the app.
+These endpoints let an external app - a watch app, for instance - run a FORJA2.0 workout from start to finish. The server runs the program engine, so finishing a workout here advances your next-workout pointer, runs your progressions, updates your 1RMs and writes history exactly as if you had done it in the app.
 
 The rule to keep in mind: **you report what the lifter did; the server decides what that means.** You never send a computed next day, a progression result or an updated 1RM.
 

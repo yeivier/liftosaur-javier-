@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IconKettlebell } from "../../../components/icons/iconKettlebell";
 import { Tailwind_semantic } from "../../../utils/tailwindConfig";
 
@@ -34,13 +35,16 @@ export function BuiltinPrograms(): JSX.Element {
           <div>
             <IconKettlebell color={Tailwind_semantic().icon.purple} />
           </div>
-          <div className="font-semibold">Weightlifting Programs</div>
+          <div className="font-semibold">{Translate_text("Weightlifting Programs")}</div>
         </div>
       </div>
-      <h2 className="mb-4 text-3xl font-bold text-center md:text-4xl">Follow free built-in programs</h2>
+      <h2 className="mb-4 text-3xl font-bold text-center md:text-4xl">
+        {Translate_text("Follow free built-in programs")}
+      </h2>
       <p className="mx-auto mb-8 text-base text-center text-text-secondary" style={{ maxWidth: "40rem" }}>
-        Start with a trusted program. All are built with Liftoscript, making them fully customizable to match your goals
-        and preferences.
+        {Translate_text(
+          "Start with a trusted program. All are built with Liftoscript, making them fully customizable to match your goals and preferences."
+        )}
       </p>
       <div className="flex flex-wrap justify-center gap-1 md:gap-2">
         {programs.map(([name, link]) => (

@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { LinkInlineInput } from "../../../components/inlineInput";
 import { Dialog_confirm } from "../../../utils/dialog";
 import { LinkButton } from "../../../components/linkButton";
@@ -57,7 +58,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
                   }
                 }}
               >
-                Delete Week
+                {Translate_text("Delete Week")}
               </LinkButton>
             </div>
           )}
@@ -78,7 +79,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
                 );
               }}
             >
-              Add New Week
+              {Translate_text("Add New Week")}
             </LinkButton>
           </div>
           <div>
@@ -98,7 +99,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
                 );
               }}
             >
-              Duplicate Week
+              {Translate_text("Duplicate Week")}
             </LinkButton>
           </div>
           {!showProgramDescription && (
@@ -113,7 +114,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
                   );
                 }}
               >
-                Add Week Description
+                {Translate_text("Add Week Description")}
               </LinkButton>
             </div>
           )}
@@ -144,7 +145,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
                   );
                 }}
               >
-                Delete Week Description
+                {Translate_text("Delete Week Description")}
               </LinkButton>
             </div>
           </div>
@@ -190,7 +191,7 @@ export function PlannerWeek(props: IPlannerWeekProps): JSX.Element {
               );
             }}
           >
-            Add Day
+            {Translate_text("Add Day")}
           </LinkButton>
         </div>
       </div>

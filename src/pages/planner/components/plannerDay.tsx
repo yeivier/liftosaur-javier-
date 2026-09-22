@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { LinkInlineInput } from "../../../components/inlineInput";
 import { Dialog_confirm } from "../../../utils/dialog";
 import { IPlannerProgramExercise, IPlannerState, IPlannerUi } from "../models/types";
@@ -108,7 +109,7 @@ export function PlannerDay(props: IPlannerDayProps): JSX.Element {
                   );
                 }}
               >
-                Delete Day Description
+                {Translate_text("Delete Day Description")}
               </LinkButton>
             </div>
           </>
@@ -124,7 +125,7 @@ export function PlannerDay(props: IPlannerDayProps): JSX.Element {
                 );
               }}
             >
-              Add Day Description
+              {Translate_text("Add Day Description")}
             </LinkButton>
           </div>
         )}
@@ -221,7 +222,7 @@ export function PlannerDay(props: IPlannerDayProps): JSX.Element {
               }
             }}
           >
-            Delete Day
+            {Translate_text("Delete Day")}
           </LinkButton>
         </div>
       </div>

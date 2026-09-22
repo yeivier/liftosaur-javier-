@@ -1,8 +1,8 @@
 ---
 date: "2025-09-01"
-title: Overview of Liftosaur - scriptable weightlifting planner and tracker app
-og_title: Overview of Liftosaur - scriptable weightlifting planner and tracker app | Liftosaur blog
-og_description: Highlevel overview of various featuers of Liftosaur - what the onboarding looks like, picking a program, tracking workouts, using the web editor.
+title: Overview of FORJA2.0 - scriptable weightlifting planner and tracker app
+og_title: Overview of FORJA2.0 - scriptable weightlifting planner and tracker app | FORJA2.0 blog
+og_description: Highlevel overview of various featuers of FORJA2.0 - what the onboarding looks like, picking a program, tracking workouts, using the web editor.
 og_image: /images/youtube/20250901-liftosaur-overview.png
 tags: ["weightlifting", "app"]
 ---
@@ -12,7 +12,7 @@ tags: ["weightlifting", "app"]
 <div class="subscription">Check out the video version of this post on Youtube!</div>
 </a>
 
-In this post I want to go over the main features of Liftosaur - a scriptable workout planner and tracker app.
+In this post I want to go over the main features of FORJA2.0 - a scriptable workout planner and tracker app.
 This is probably the most powerful lifting app on the market, incredibly flexible and customizable. You can
 implement any program you want, and change every bit of it. You can specify any progressive overload logic you want, even script it if it's somewhat unique.
 
@@ -49,7 +49,7 @@ The app is pretty unique, so hopefully this post may help you decide whether you
 
 <div class="image-with-text image-with-text-reverse">
   <div>
-    Now we can choose a built-in program, create our own, or just go without a program. Liftosaur really works best if you have the program you follow, but there're also ways to gradually build it over time as well. There're filters at the top to help you find the program that fits your goals, your schedule, how much time you can spend in a gym, etc. Let's choose e.g. GZCLP to start with.
+    Now we can choose a built-in program, create our own, or just go without a program. FORJA2.0 really works best if you have the program you follow, but there're also ways to gradually build it over time as well. There're filters at the top to help you find the program that fits your goals, your schedule, how much time you can spend in a gym, etc. Let's choose e.g. GZCLP to start with.
   </div>
   <img src="../../images/liftosaur-overview/programs.png" alt="Programs screen" />
 </div>
@@ -125,7 +125,7 @@ When you finish a workout, it changes the current program. The program under the
       If we go to Program screen, we could actually see and edit the program text. Go to Edit, then tap this coding icon. The program is written using special markup/scripting language called <a href="https://www.liftosaur.com/docs">Liftoscript</a>. You can define the weeks, days, exercises, and write the progression logic right there. The syntax is simple, and you don't have to define scripts, you can just use built-in progressions, like linear or double progression.
     </p>
     <p>
-      Programs being just text is a very powerful concept. You can easily share them, you can store them even in your Notes, you can edit them in any text editor. Liftosaur provides IDE for that, so it'd have autocomplete, error checking, etc - both in the app or on the web, in a browser. Editing a lot of text on a phone could be quite inconvenient, so it's usually easier to do that from a laptop.
+      Programs being just text is a very powerful concept. You can easily share them, you can store them even in your Notes, you can edit them in any text editor. FORJA2.0 provides IDE for that, so it'd have autocomplete, error checking, etc - both in the app or on the web, in a browser. Editing a lot of text on a phone could be quite inconvenient, so it's usually easier to do that from a laptop.
     </p>
   </div>
 </div>

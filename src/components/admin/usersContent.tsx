@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { HistoryRecordView } from "../historyRecord";
 import { IHistoryRecord, ISettings } from "../../types";
 import { DateUtils_formatYYYYMMDD } from "../../utils/date";
@@ -22,20 +23,23 @@ export interface IProcessedUser {
 export function UsersContent(props: IUsersContentProps): JSX.Element {
   return (
     <div>
-      <h1>Users ({props.users.length})</h1>
+      <h1>
+        {Translate_text("Users (")}
+        {props.users.length})
+      </h1>
       <table className="w-full text-sm">
         <thead>
           <tr className="text-left">
-            <th className="w-32 px-2">Name</th>
-            <th className="w-32 px-2">Created</th>
+            <th className="w-32 px-2">{Translate_text("Name")}</th>
+            <th className="w-32 px-2">{Translate_text("Created")}</th>
             <th className="px-2" style={{ width: "240px" }}>
-              Email
+              {Translate_text("Email")}
             </th>
             <th className="px-2" style={{ width: "200px" }}>
-              Programs
+              {Translate_text("Programs")}
             </th>
-            <th className="w-12 px-2">History Records</th>
-            <th className="px-2">Last History</th>
+            <th className="w-12 px-2">{Translate_text("History Records")}</th>
+            <th className="px-2">{Translate_text("Last History")}</th>
           </tr>
         </thead>
         <tbody>

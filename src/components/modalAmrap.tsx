@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { View } from "react-native";
 import { Button } from "./button";
 import { IDispatch } from "../ducks/types";
@@ -218,7 +219,7 @@ export function ModalAmrapContent(props: IModalAmrapContentProps): JSX.Element {
             onDone();
           }}
         >
-          Cancel
+          {Translate_text("Cancel")}
         </Button>
         <Button
           name="modal-amrap-submit"
@@ -241,7 +242,7 @@ export function ModalAmrapContent(props: IModalAmrapContentProps): JSX.Element {
             onDone(amrapValue, amrapLeftValue, rpeValue, weightValue, userVarInputValues);
           }}
         >
-          Done
+          {Translate_text("Done")}
         </Button>
       </View>
     </View>

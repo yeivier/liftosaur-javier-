@@ -1,4 +1,5 @@
 import { JSX, RefObject, forwardRef, useRef, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { Modal } from "./modal";
 import { Dialog_confirm } from "../utils/dialog";
 import { StringUtils_capitalize, StringUtils_dashcase } from "../utils/string";
@@ -239,7 +240,9 @@ const ExercisesList = forwardRef((props: IExercisesListProps, _ref): JSX.Element
   return (
     <form data-testid="modal-exercise" onSubmit={(e) => e.preventDefault()}>
       {props.isSubstitute && (
-        <p className="text-xs italic">Similar exercises are sorted by the same muscles as the current one.</p>
+        <p className="text-xs italic">
+          {Translate_text("Similar exercises are sorted by the same muscles as the current one.")}
+        </p>
       )}
       {exercise && (
         <div className="px-4 py-2 mb-2 bg-background-cardpurple rounded-2xl">
@@ -343,7 +346,7 @@ const ExercisesList = forwardRef((props: IExercisesListProps, _ref): JSX.Element
                 props.setIsCustomExerciseDisplayed(true);
               }}
             >
-              Add Custom Exercise
+              {Translate_text("Add Custom Exercise")}
             </LinkButton>
           </div>
         </>
@@ -528,19 +531,19 @@ export function MuscleGroupsView(props: { exercise: IExercise; settings: ISettin
     <div className="text-xs">
       {types.length > 0 && (
         <div>
-          <span className="text-text-secondary">Type: </span>
+          <span className="text-text-secondary">{Translate_text("Type: ")}</span>
           <span className="font-bold">{types.join(", ")}</span>
         </div>
       )}
       {targetMuscleGroups.length > 0 && (
         <div>
-          <span className="text-text-secondary">Target: </span>
+          <span className="text-text-secondary">{Translate_text("Target: ")}</span>
           <span className="font-bold">{targetMuscleGroups.join(", ")}</span>
         </div>
       )}
       {synergistMuscleGroups.length > 0 && (
         <div>
-          <span className="text-text-secondary">Synergist: </span>
+          <span className="text-text-secondary">{Translate_text("Synergist: ")}</span>
           <span className="font-bold">{synergistMuscleGroups.join(", ")}</span>
         </div>
       )}
@@ -565,13 +568,13 @@ function MuscleView(props: {
     <div className="text-xs">
       {types.length > 0 && (
         <div>
-          <span className="text-text-secondary">Type: </span>
+          <span className="text-text-secondary">{Translate_text("Type: ")}</span>
           <span className="font-bold">{types.join(", ")}</span>
         </div>
       )}
       {targetMuscles.length > 0 && (
         <div>
-          <span className="text-text-secondary">Target: </span>
+          <span className="text-text-secondary">{Translate_text("Target: ")}</span>
           <span className="font-bold">
             {targetMuscles.map((m, i) => {
               return (
@@ -590,7 +593,7 @@ function MuscleView(props: {
       )}
       {synergistMuscles.length > 0 && (
         <div>
-          <span className="text-text-secondary">Synergist: </span>
+          <span className="text-text-secondary">{Translate_text("Synergist: ")}</span>
           <span className="font-bold">
             {synergistMuscles.map((m, i) => {
               return (
@@ -633,19 +636,19 @@ export function CustomMuscleGroupsView(props: { exercise: ICustomExercise; setti
     <div className="text-xs">
       {types.length > 0 && (
         <div>
-          <span className="text-text-secondary">Type: </span>
+          <span className="text-text-secondary">{Translate_text("Type: ")}</span>
           <span className="font-bold">{types.join(", ")}</span>
         </div>
       )}
       {targetMuscleGroups.length > 0 && (
         <div>
-          <span className="text-text-secondary">Target: </span>
+          <span className="text-text-secondary">{Translate_text("Target: ")}</span>
           <span className="font-bold">{targetMuscleGroups.join(", ")}</span>{" "}
         </div>
       )}
       {synergistMuscleGroups.length > 0 && (
         <div>
-          <span className="text-text-secondary">Synergist: </span>
+          <span className="text-text-secondary">{Translate_text("Synergist: ")}</span>
           <span className="font-bold">{synergistMuscleGroups.join(", ")}</span>
         </div>
       )}
@@ -679,9 +682,13 @@ function ExerciseTemplate(props: IExerciseTemplateProps): JSX.Element {
         }}
       />
       <div className="my-2 text-sm">
-        You can choose any name for the template, and it will be saved as <strong>"non-used"</strong> (i.e. as a
-        template). You can reuse <strong>sets</strong>, <strong>warmup</strong>, <strong>update</strong> or{" "}
-        <strong>progress</strong> from this template in your real exercises.
+        {Translate_text("You can choose any name for the template, and it will be saved as ")}
+        <strong>{Translate_text('"non-used"')}</strong>
+        {Translate_text(" (i.e. as a template). You can reuse ")}
+        <strong>{Translate_text("sets")}</strong>, <strong>{Translate_text("warmup")}</strong>,{" "}
+        <strong>{Translate_text("update")}</strong>
+        {Translate_text(" or")} <strong>{Translate_text("progress")}</strong>
+        {Translate_text(" from this template in your real exercises.")}
       </div>
       <div className="flex py-4">
         <div className="flex-1">
@@ -692,7 +699,7 @@ function ExerciseTemplate(props: IExerciseTemplateProps): JSX.Element {
             testID="exercise-template-cancel"
             onClick={() => props.onSaveAsTemplate && props.onSaveAsTemplate(undefined, undefined)}
           >
-            Cancel
+            {Translate_text("Cancel")}
           </Button>
         </div>
         <div className="flex-1 text-right">
@@ -716,7 +723,7 @@ function ExerciseTemplate(props: IExerciseTemplateProps): JSX.Element {
               }
             }}
           >
-            Save
+            {Translate_text("Save")}
           </Button>
         </div>
       </div>

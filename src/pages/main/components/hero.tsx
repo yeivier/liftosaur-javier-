@@ -1,4 +1,5 @@
 import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { ITestimonial, Testimonials_getHighRatingTitles } from "../testimonitals";
 import { IconStar } from "../../../components/icons/iconStar";
 import { Tailwind_semantic } from "../../../utils/tailwindConfig";
@@ -18,13 +19,19 @@ export function Hero(props: { deviceType?: "ios" | "android" | "desktop"; testim
               <TopTestimonials testimonials={props.testimonials} />
             </div>
             <h1 className="mb-6 text-3xl font-bold md:text-5xl lg:text-5xl" style={{ lineHeight: 1.2 }}>
-              The most powerful weightlifting <span className="text-text-purple">planner</span> and{" "}
-              <span className="text-text-error">tracker</span> app
+              {Translate_text("The most powerful weightlifting ")}
+              <span className="text-text-purple">{Translate_text("planner")}</span>
+              {Translate_text(" and")} <span className="text-text-error">{Translate_text("tracker")}</span>
+              {Translate_text(" app")}
             </h1>
             <p className="mb-6 text-base md:text-lg" style={{ maxWidth: "28rem" }}>
-              It's like having <strong>Google Sheets</strong> and <strong>Strong</strong> in the same app! Create custom
-              programs or choose proven ones like GZCLP or 5/3/1, trusted by thousands of lifters to get bigger and
-              stronger.
+              {Translate_text("It's like having ")}
+              <strong>{Translate_text("Google Sheets")}</strong>
+              {Translate_text(" and ")}
+              <strong>{Translate_text("Strong")}</strong>
+              {Translate_text(
+                " in the same app! Create custom programs or choose proven ones like GZCLP or 5/3/1, trusted by thousands of lifters to get bigger and stronger."
+              )}
             </p>
             <div className="mb-4">
               <StoresLinks deviceType={props.deviceType} />
@@ -117,7 +124,7 @@ function TopTestimonials(props: { testimonials: ITestimonial[] }): JSX.Element {
           target="_blank"
           className="text-xs italic text-text-secondary"
         >
-          from App Store reviews
+          {Translate_text("from App Store reviews")}
         </a>
       </div>
     </div>
@@ -174,9 +181,9 @@ function StoresLinks(props: { deviceType?: "ios" | "android" | "desktop" }): JSX
         </div>
       </div>
       <div className="mt-2 text-sm">
-        <span className="text-text-secondary">or</span>{" "}
+        <span className="text-text-secondary">{Translate_text("or")}</span>{" "}
         <a href="/app" target="_blank" className="font-bold text-text-purple underline">
-          use as a web app
+          {Translate_text("use as a web app")}
         </a>
       </div>
     </div>

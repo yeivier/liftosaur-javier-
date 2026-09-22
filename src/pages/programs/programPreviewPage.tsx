@@ -1,4 +1,5 @@
 import { JSX, useCallback, useEffect, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { parseFrontmatter, parseProgramMarkdownContent } from "../../utils/programUtils";
 import { ProgramDetailsContent } from "./programDetailsContent";
 import { Program_create, IProgramIndexEntry } from "../../models/program";
@@ -119,10 +120,10 @@ export function ProgramPreviewPage(): JSX.Element {
 
   return (
     <div className="px-4 py-4 mx-auto" style={{ maxWidth: 1400 }}>
-      <h1 className="mb-4 text-2xl font-bold">Program Previewer</h1>
+      <h1 className="mb-4 text-2xl font-bold">{Translate_text("Program Previewer")}</h1>
       <div className="flex flex-wrap items-end gap-2 mb-4">
         <label className="flex flex-col text-sm">
-          <span className="mb-1 font-bold">GitHub User</span>
+          <span className="mb-1 font-bold">{Translate_text("GitHub User")}</span>
           <input
             className="px-2 py-1 border rounded border-border-neutral"
             type="text"
@@ -132,7 +133,7 @@ export function ProgramPreviewPage(): JSX.Element {
           />
         </label>
         <label className="flex flex-col text-sm">
-          <span className="mb-1 font-bold">Commit Hash</span>
+          <span className="mb-1 font-bold">{Translate_text("Commit Hash")}</span>
           <input
             className="px-2 py-1 border rounded border-border-neutral"
             type="text"
@@ -142,7 +143,7 @@ export function ProgramPreviewPage(): JSX.Element {
           />
         </label>
         <label className="flex flex-col text-sm">
-          <span className="mb-1 font-bold">Program Name</span>
+          <span className="mb-1 font-bold">{Translate_text("Program Name")}</span>
           <input
             className="px-2 py-1 border rounded border-border-neutral"
             type="text"
@@ -162,7 +163,7 @@ export function ProgramPreviewPage(): JSX.Element {
 
       <div className="flex gap-4" style={{ minHeight: "80vh" }}>
         <div className="flex flex-col w-1/3">
-          <h2 className="mb-2 text-lg font-bold">Markdown</h2>
+          <h2 className="mb-2 text-lg font-bold">{Translate_text("Markdown")}</h2>
           <div className="flex-1 overflow-auto border rounded border-border-neutral">
             <MarkdownEditorBorderless
               key={editorVersion}
@@ -174,13 +175,13 @@ export function ProgramPreviewPage(): JSX.Element {
           </div>
           {parsed?.liftoscriptError && (
             <div className="p-2 mt-2 text-sm text-red-800 bg-red-100 rounded">
-              <strong>Liftoscript error: </strong>
+              <strong>{Translate_text("Liftoscript error: ")}</strong>
               {parsed.liftoscriptError}
             </div>
           )}
         </div>
         <div className="w-2/3 overflow-auto">
-          <h2 className="mb-2 text-lg font-bold">Preview</h2>
+          <h2 className="mb-2 text-lg font-bold">{Translate_text("Preview")}</h2>
           {error && <div className="p-2 mb-2 text-sm text-red-800 bg-red-100 rounded">{error}</div>}
           {parsed && (
             <div className="border rounded border-border-neutral">
@@ -195,7 +196,9 @@ export function ProgramPreviewPage(): JSX.Element {
             </div>
           )}
           {!parsed && !error && (
-            <div className="text-sm text-text-secondary">Paste markdown or fetch from GitHub to preview</div>
+            <div className="text-sm text-text-secondary">
+              {Translate_text("Paste markdown or fetch from GitHub to preview")}
+            </div>
           )}
         </div>
       </div>

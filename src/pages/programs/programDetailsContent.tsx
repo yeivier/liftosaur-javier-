@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Settings_build } from "../../models/settings";
 import { IProgram, IUnit } from "../../types";
 import { ProgramDetailsWorkoutPlayground } from "./programDetails/programDetailsWorkoutPlayground";
@@ -62,24 +63,31 @@ export function ProgramDetailsContent(props: IProgramDetailsContentProps): JSX.E
         <div className="flex-1 min-w-0">
           <nav className="pt-2 pb-2 text-xs text-text-secondary" aria-label="Breadcrumb">
             <a href="/" className="underline hover:text-text-primary">
-              Home
+              {Translate_text("Home")}
             </a>
             <span className="mx-1">/</span>
             <a href="/programs" className="underline hover:text-text-primary">
-              Programs
+              {Translate_text("Programs")}
             </a>
             <span className="mx-1">/</span>
             <span className="text-text-primary">{program.name}</span>
           </nav>
-          <h1 className="text-2xl font-bold leading-scaled-8">{program.name} Workout Program</h1>
+          <h1 className="text-2xl font-bold leading-scaled-8">
+            {program.name}
+            {Translate_text(" Workout Program")}
+          </h1>
           {program.author && (
             <div className="mt-2 mb-4 text-sm font-bold">
               {program.url ? (
                 <a href={program.url} target="_blank" className="underline text-text-link">
-                  by {program.author}
+                  {Translate_text("by ")}
+                  {program.author}
                 </a>
               ) : (
-                <span>by {program.author}</span>
+                <span>
+                  {Translate_text("by ")}
+                  {program.author}
+                </span>
               )}
             </div>
           )}
@@ -111,7 +119,7 @@ export function ProgramDetailsContent(props: IProgramDetailsContentProps): JSX.E
                   <IconArrowRight className="inline-block" />
                 )}
               </div>
-              <div>Summary</div>
+              <div>{Translate_text("Summary")}</div>
             </button>
             {isSummaryOpen && (
               <>
@@ -119,7 +127,10 @@ export function ProgramDetailsContent(props: IProgramDetailsContentProps): JSX.E
                   {indexEntry?.duration && (
                     <div className="flex items-center gap-1 mb-2 text-sm text-text-secondary">
                       <IconWatch width={14} height={18} />
-                      <span>~{indexEntry.duration} min per workout</span>
+                      <span>
+                        ~{indexEntry.duration}
+                        {Translate_text(" min per workout")}
+                      </span>
                     </div>
                   )}
                   <div className="flex mb-2 text-sm text-text-secondary">
@@ -159,7 +170,7 @@ export function ProgramDetailsContent(props: IProgramDetailsContentProps): JSX.E
                   <IconArrowRight className="inline-block" />
                 )}
               </div>
-              <div>Week Stats</div>
+              <div>{Translate_text("Week Stats")}</div>
             </button>
             {isWeekStatsOpen && (
               <PlannerWeekStats

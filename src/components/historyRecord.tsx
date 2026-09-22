@@ -126,7 +126,9 @@ export const HistoryRecordView = memo((props: IProps): JSX.Element => {
             <View className="mt-2">
               <Text>
                 <Text className="text-sm">Note: </Text>
-                <Text className="text-sm text-text-secondary">{historyRecord.notes}</Text>
+                <Text className="text-sm text-text-secondary" noTranslate={true}>
+                  {historyRecord.notes}
+                </Text>
               </Text>
             </View>
           )}

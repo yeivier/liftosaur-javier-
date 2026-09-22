@@ -1,4 +1,5 @@
 import { JSX, useEffect, useRef } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IProgramState } from "../../../types";
 import { LiftoscriptSyntaxError } from "../../../liftoscriptEvaluator";
 import { ScriptEditor } from "./scriptEditor";
@@ -100,7 +101,7 @@ export function EvalResult(props: IEvalResultProps): JSX.Element | null {
     const customErrorCta = props.onCustomErrorCta && props.onCustomErrorCta(props.error);
     return (
       <span className="px-2 text-sm">
-        <span className={props.redTheme ? "text-redv2-100" : "text-red-500"}>Error: </span>
+        <span className={props.redTheme ? "text-redv2-100" : "text-red-500"}>{Translate_text("Error: ")}</span>
         <span className={`font-bold ${props.redTheme ? "text-text-alwayswhite" : "text-red-700"}`}>
           {props.error.message}
         </span>

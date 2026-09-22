@@ -1,4 +1,5 @@
 import { JSX, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { ModalScreenContainer } from "../ModalScreenContainer";
@@ -78,7 +79,7 @@ export function NavModalEditDetails(): JSX.Element {
             className="mr-3"
             onClick={onClose}
           >
-            Cancel
+            {Translate_text("Cancel")}
           </Button>
           <Button
             kind="purple"

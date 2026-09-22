@@ -375,6 +375,9 @@
   "src/pages/programs/programPreviewPage.tsx": {
     "decision-in-view:useCallback#1": "predates the rule"
   },
+  "src/pages/repmax/repMaxContent.tsx": {
+    "long-view": "one screen - the rep max calculator, its RPE table and its FAQ; crossed 400 lines when the Translate_text import was added"
+  },
   "src/pages/resetPassword/resetPasswordContent.tsx": {
     "decision-in-view:submit": "predates the rule"
   }

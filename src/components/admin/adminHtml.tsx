@@ -1,4 +1,5 @@
 import { JSX, ReactNode } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { renderToString } from "react-dom/server";
 
 interface IProps {
@@ -15,7 +16,7 @@ export function AdminHtml(props: IProps): JSX.Element {
   return (
     <html lang="en">
       <head>
-        <title>Liftosaur: Weight Lifting Tracking App | Admin</title>
+        <title>{Translate_text("FORJA2.0: Weight Lifting Tracking App | Admin")}</title>
         <link rel="stylesheet" type="text/css" href="/admin.css?version=xxxxxxxx" />
         <meta charSet="UTF-8" />
         <link rel="preconnect" href="https://api3.liftosaur.com" />
@@ -33,17 +34,17 @@ export function AdminHtml(props: IProps): JSX.Element {
           <nav className="top-nav">
             <div className="top-nav-left">
               <a href="/" className="top-nav-logo">
-                <img src="/images/logo.svg" alt="Liftosaur Logo" />
-                <span>Liftosaur</span>
+                <img src="/images/logo.svg" alt="FORJA2.0 Logo" />
+                <span>{Translate_text("FORJA2.0")}</span>
               </a>
             </div>
             <div className="top-nav-right">
               <ul className="top-nav-menu">
                 <li>
-                  <a href={`/admin/logs?key=${props.apiKey}`}>Logs</a>
+                  <a href={`/admin/logs?key=${props.apiKey}`}>{Translate_text("Logs")}</a>
                 </li>
                 <li>
-                  <a href={`/admin/users?key=${props.apiKey}`}>Users</a>
+                  <a href={`/admin/users?key=${props.apiKey}`}>{Translate_text("Users")}</a>
                 </li>
               </ul>
             </div>

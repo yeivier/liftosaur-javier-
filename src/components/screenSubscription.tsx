@@ -334,7 +334,7 @@ function SubscriptionHero(): JSX.Element {
         source={{ uri: ImagePreloader_uri("/images/subscriptionhero.png") }}
         style={{ width: "80%", aspectRatio: 879 / 516 }}
         resizeMode="contain"
-        accessibilityLabel="Liftosaur Premium features"
+        accessibilityLabel="FORJA2.0 Premium features"
       />
       <View className="absolute right-4 bottom-0">
         <IconDinoSunglasses width={102} height={136} />
@@ -346,7 +346,7 @@ function SubscriptionHero(): JSX.Element {
 function PitchHeader(): JSX.Element {
   return (
     <View className="py-4">
-      <Text className="text-lg font-semibold">Upgrade your workout routine with Liftosaur Premium:</Text>
+      <Text className="text-lg font-semibold">Upgrade your workout routine with FORJA2.0 Premium:</Text>
     </View>
   );
 }
@@ -417,7 +417,7 @@ function ClaimFreeAccess(props: { dispatch: IDispatch }): JSX.Element {
     <View className="flex-row items-center px-2">
       <View className="flex-1">
         <Text className="text-xs text-text-secondary">
-          You were granted the <Text className="font-bold">free access</Text> to Liftosaur!
+          You were granted the <Text className="font-bold">free access</Text> to FORJA2.0!
         </Text>
       </View>
       <View>
@@ -534,7 +534,7 @@ function ManagementActions(props: IManagementActionsProps): JSX.Element {
     return (
       <View>
         <Text className="text-xs text-center text-text-secondary">
-          Manage your subscription from the Liftosaur mobile app, or your {StoreRuntime_storeName()} account.
+          Manage your subscription from the FORJA2.0 mobile app, or your {StoreRuntime_storeName()} account.
         </Text>
       </View>
     );
@@ -712,7 +712,7 @@ function PlanCard(props: IPlanCardProps): JSX.Element {
 
 function webAlert(): void {
   Dialog_alert(
-    "You can only subscribe from an iOS or Android Liftosaur app. Install Liftosaur from Google Play or App Store, subscribe there, then log in in Liftosaur, and use the same login method on the web. That will unlock the premium features on the web."
+    "You can only subscribe from an iOS or Android FORJA2.0 app. Install FORJA2.0 from Google Play or App Store, subscribe there, then log in in FORJA2.0, and use the same login method on the web. That will unlock the premium features on the web."
   );
 }
 

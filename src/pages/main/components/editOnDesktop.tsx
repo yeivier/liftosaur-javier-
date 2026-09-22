@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IconLaptop } from "../../../components/icons/iconLaptop";
 import { Tailwind_colors } from "../../../utils/tailwindConfig";
 
@@ -11,21 +12,23 @@ export function EditOnDesktop(): JSX.Element {
             <div className="flex items-center gap-2 mb-4">
               <IconLaptop color={Tailwind_colors().purple[400]} />
               <span className="text-sm font-semibold" style={{ color: Tailwind_colors().purple[400] }}>
-                Program Web Editor
+                {Translate_text("Program Web Editor")}
               </span>
             </div>
-            <h2 className="mb-6 text-3xl font-semibold text-text-alwayswhite md:text-4xl">Edit programs on desktop</h2>
+            <h2 className="mb-6 text-3xl font-semibold text-text-alwayswhite md:text-4xl">
+              {Translate_text("Edit programs on desktop")}
+            </h2>
             <p className="mb-2 text-base leading-relaxed text-text-alwayswhite md:mb-6">
-              Typing your program on a phone can indeed be tedious. To ease this process, there is a web editor
-              available. Edit programs from your account, or generate a link to a program, and share with other people.
-              And you can import those links into the app.
+              {Translate_text(
+                "Typing your program on a phone can indeed be tedious. To ease this process, there is a web editor available. Edit programs from your account, or generate a link to a program, and share with other people. And you can import those links into the app."
+              )}
             </p>
             <a
               href="/planner"
               className="inline-block font-bold underline"
               style={{ color: Tailwind_colors().purple[400] }}
             >
-              Try the Web Editor
+              {Translate_text("Try the Web Editor")}
             </a>
           </div>
           <div className="relative flex-1 block md:hidden">

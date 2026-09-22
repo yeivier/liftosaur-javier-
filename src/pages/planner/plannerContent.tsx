@@ -1,4 +1,5 @@
 import { JSX, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { useLensReducer } from "../../utils/useLensReducer";
 import {
   SafeLocalStorage_getItem,
@@ -333,8 +334,9 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
     <section className="px-4">
       {!props.shouldSync && isChanged(state) && !clearHasChanges && (
         <div className="fixed top-0 left-0 z-50 w-full text-xs text-center border-b border-border-prominent text-text-error bg-background-lighterror">
-          Made changes to the program, but the link still goes to the original version. If you want to share updated
-          version, generate a new link.
+          {Translate_text(
+            "Made changes to the program, but the link still goes to the original version. If you want to share updated version, generate a new link."
+          )}
           <button className="p-2 align-middle nm-clear-has-changes" onClick={() => setClearHasChanges(true)}>
             <IconCloseCircleOutline size={14} />
           </button>
@@ -342,7 +344,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
       )}
       <div className="flex mx-auto" style={{ maxWidth }}>
         <h1 className="flex items-center mb-4 mr-auto text-2xl font-bold leading-tightm">
-          <div>Web Editor</div>
+          <div>{Translate_text("Web Editor")}</div>
           {!showHelp && (
             <button
               className="block ml-3 nm-planner-help"
@@ -358,7 +360,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
         {props.shouldSync && props.revisions && props.revisions.length > 0 && (
           <div>
             <LinkButton name="show-revisions" onClick={() => setShowRevisions(true)}>
-              Versions
+              {Translate_text("Versions")}
             </LinkButton>
           </div>
         )}
@@ -371,16 +373,21 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
         >
           <div>
             <p className="mb-2">
-              This tool allows you to quickly build your weightlifting programs, ensure you have proper{" "}
-              <strong>weekly volume per muscle group</strong>, and balance it with the{" "}
-              <strong>time you spend in a gym</strong>. You can build multi-week programs, plan your mesocycles, deload
-              weeks, testing 1RM weeks, and see the weekly undulation of volume and intensity of each exercise on a
-              graph.
+              {Translate_text(
+                "This tool allows you to quickly build your weightlifting programs, ensure you have proper"
+              )}{" "}
+              <strong>{Translate_text("weekly volume per muscle group")}</strong>
+              {Translate_text(", and balance it with the")} <strong>{Translate_text("time you spend in a gym")}</strong>
+              {Translate_text(
+                ". You can build multi-week programs, plan your mesocycles, deload weeks, testing 1RM weeks, and see the weekly undulation of volume and intensity of each exercise on a graph."
+              )}
             </p>
             <p className="mb-2">
-              Set the program name, create weeks and days, type the list of exercises for each day, putting each
-              exercise on a new line, along with the number of sets and reps after slash (<code>/</code>) character,
-              like this:
+              {Translate_text(
+                "Set the program name, create weeks and days, type the list of exercises for each day, putting each exercise on a new line, along with the number of sets and reps after slash ("
+              )}
+              <code>/</code>
+              {Translate_text(") character, like this:")}
             </p>
             <div>
               <div className="inline-block px-4 py-2 my-1 mb-2 border rounded-md bg-background-default border-border-neutral">
@@ -388,31 +395,37 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
               </div>
             </div>
             <p className="mb-2">
-              Autocomplete will help you with the exercise names. You can also create custom exercises if they're
-              missing in the library.
+              {Translate_text(
+                "Autocomplete will help you with the exercise names. You can also create custom exercises if they're missing in the library."
+              )}
             </p>
             <p className="mb-2">
-              On the right you'll see <strong>Weekly Stats</strong>, where you can see the number of sets per week per
-              muscle group, whether you're in the recommended range (indicated by color), strength/hypertrophy split,
-              and if you hover a mouse over the numbers - you'll see what exercises contribute to that number, and how
-              much.
+              {Translate_text("On the right you'll see ")}
+              <strong>{Translate_text("Weekly Stats")}</strong>
+              {Translate_text(
+                ", where you can see the number of sets per week per muscle group, whether you're in the recommended range (indicated by color), strength/hypertrophy split, and if you hover a mouse over the numbers - you'll see what exercises contribute to that number, and how much."
+              )}
             </p>
             <p className="mb-2">
-              The exercise syntax supports{" "}
+              {Translate_text("The exercise syntax supports")}{" "}
               <abbr title="RPE - Rate of Perceived Exertion. It's a subjective measure of how hard the set was.">
-                RPEs
+                {Translate_text("RPEs")}
               </abbr>{" "}
-              , percentage of{" "}
-              <abbr title="1RM - One Rep Max. The maximum weight you can lift for one repetition.">1RM</abbr>, rest
-              timers, various progressive overload types, etc. Read more about the features{" "}
+              {Translate_text(", percentage of")}{" "}
+              <abbr title="1RM - One Rep Max. The maximum weight you can lift for one repetition.">
+                {Translate_text("1RM")}
+              </abbr>
+              {Translate_text(", rest timers, various progressive overload types, etc. Read more about the features")}{" "}
               <a target="_blank" className="font-bold underline text-text-link" href="https://www.liftosaur.com/doc/">
-                in the docs
+                {Translate_text("in the docs")}
               </a>
               !
             </p>
             <p className="mb-2">
-              When you're done, you can convert this program to Liftosaur program, and run what you planned in the gym,
-              using the <strong>Liftosaur app</strong>!
+              {Translate_text(
+                "When you're done, you can convert this program to FORJA2.0 program, and run what you planned in the gym, using the "
+              )}
+              <strong>{Translate_text("FORJA2.0 app")}</strong>!
             </p>
           </div>
           <button
@@ -469,7 +482,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
           {props.source != null && props.source === props.account?.id && (
             <div>
               <div className="inline-block px-2 text-sm rounded-md border-border-cardpurple bg-background-purpledark text-text-purple">
-                It's your affiliate link
+                {Translate_text("It's your affiliate link")}
               </div>
             </div>
           )}
@@ -482,7 +495,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
                   lb<IPlannerState>().p("current").p("program").p("name").record(v),
                   "Update current program name"
                 );
-                document.title = `Liftosaur: Weight Lifting Tracking App | ${HtmlUtils_escapeHtml(v)}`;
+                document.title = `FORJA2.0: Weight Lifting Tracking App | ${HtmlUtils_escapeHtml(v)}`;
               }}
             />
           </h2>
@@ -491,7 +504,8 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
               className="text-xs font-normal text-text-secondary nm-program-content-change-id"
               style={{ marginTop: "-0.5rem" }}
             >
-              id: {state.id}
+              {Translate_text("id: ")}
+              {state.id}
             </span>
           ) : (
             <button
@@ -508,7 +522,8 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
                 );
               }}
             >
-              id: {state.id}
+              {Translate_text("id: ")}
+              {state.id}
             </button>
           )}
         </div>
@@ -621,7 +636,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
       {showClipboardInfo && (
         <>
           <div className="mb-2 text-xs text-left sm:text-right text-text-secondary">
-            Copied to clipboard:{" "}
+            {Translate_text("Copied to clipboard:")}{" "}
             <a target="_blank" className="font-bold underline text-text-link" href={showClipboardInfo}>
               {showClipboardInfo}
             </a>
@@ -629,7 +644,7 @@ export function PlannerContent(props: IPlannerContentProps): JSX.Element {
           {props.account?.affiliateEnabled && props.account?.id && (
             <div className="text-left sm:text-right">
               <div className="inline-block px-2 text-sm rounded-md border-border-cardpurple bg-background-purpledark text-text-purple">
-                Copied as an affiliate link
+                {Translate_text("Copied as an affiliate link")}
               </div>
             </div>
           )}

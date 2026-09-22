@@ -1,4 +1,5 @@
 import { JSX, useEffect, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { InputNumber } from "../../components/inputNumber";
 import { LinkButton } from "../../components/linkButton";
 import { MathUtils_toWord, MathUtils_clamp, MathUtils_roundTo05 } from "../../utils/math";
@@ -15,7 +16,6 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
   const [knownRpe, setKnownRpe] = useState<number>(10);
   const [knownWeight, setKnownWeight] = useState<number>(100);
   const [reps, setReps] = useState<number | undefined>(props.reps);
-  const repsWord = reps ? MathUtils_toWord(reps) : undefined;
   const [rpe, setRpe] = useState<number | undefined>(10);
   const weight =
     knownReps != null && knownWeight != null && reps
@@ -33,7 +33,7 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
       const word = reps ? MathUtils_toWord(reps) : undefined;
       window.history.replaceState(
         { reps },
-        `${word != null ? `${StringUtils_capitalize(word)} ` : ""}Rep Max Calculator (${reps != null ? reps : ""}RM) - Free & Accurate | Liftosaur`,
+        `${word != null ? `${StringUtils_capitalize(word)} ` : ""}Rep Max Calculator (${reps != null ? reps : ""}RM) - Free & Accurate | FORJA2.0`,
         `/${word != null ? `${word}-` : ""}rep-max-calculator`
       );
     }, 0);
@@ -51,22 +51,27 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
     <div className="px-2 text-center">
       <div className="mb-4">
         <h1 className="px-6 text-2xl font-bold">
-          {repsWord ? `${StringUtils_capitalize(repsWord)} ` : ""}Rep Max ({reps != null ? reps : ""}RM) calculator
+          {Translate_text("Rep Max Calculator")}
+          {reps != null ? ` — ${reps}RM` : ""}
         </h1>
         <div>
           <LinkButton name="enable-rpe" onClick={() => setRpeEnabled(!rpeEnabled)}>
-            {rpeEnabled ? "Disable" : "Enable"} RPE
+            {rpeEnabled ? "Disable" : "Enable"}
+            {Translate_text(" RPE")}
           </LinkButton>
         </div>
       </div>
       <div className="mb-2">
         <div className="mb-2">
           <h2 className="text-lg font-bold">
-            Enter how many reps <span className="text-icon-yellow">you can do</span> with some weight
+            {Translate_text("Enter how many reps ")}
+            <span className="text-icon-yellow">{Translate_text("you can do")}</span>
+            {Translate_text(" with some weight")}
           </h2>
           {rpeEnabled && (
             <p className="text-xs text-text-secondary">
-              Also you can specify RPE. If you don't know your RPE, leave it as <strong>10</strong>.
+              {Translate_text("Also you can specify RPE. If you don't know your RPE, leave it as ")}
+              <strong>10</strong>.
             </p>
           )}
         </div>
@@ -129,7 +134,11 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
       <div className="mb-2">
         <div className="mb-2">
           <h2 className="text-lg font-bold">
-            This would be your weight for <span className="text-icon-yellow">{reps}RM</span>
+            {Translate_text("This would be your weight for ")}
+            <span className="text-icon-yellow">
+              {reps}
+              {Translate_text("RM")}
+            </span>
           </h2>
         </div>
         <div className="flex items-center justify-center">
@@ -213,7 +222,7 @@ function OtherRepMaxes(props: IOtherRepMaxesProps): JSX.Element {
       <div className="flex gap-6">
         <div>
           <div className="mb-2">
-            <h2 className="text-lg font-bold">Other Rep Maxes</h2>
+            <h2 className="text-lg font-bold">{Translate_text("Other Rep Maxes")}</h2>
           </div>
           {knownReps != null && knownWeight != null && (
             <ul>
@@ -222,7 +231,9 @@ function OtherRepMaxes(props: IOtherRepMaxesProps): JSX.Element {
                   const w = Weight_calculateRepMax(knownReps, knownRpe ?? 10, knownWeight, r, rpe ?? 10);
                   return (
                     <li key={r}>
-                      {r}RM{rpeEnabled ? <span className="text-text-secondary">@{rpe ?? 10}</span> : ""}:{" "}
+                      {r}
+                      {Translate_text("RM")}
+                      {rpeEnabled ? <span className="text-text-secondary">@{rpe ?? 10}</span> : ""}:{" "}
                       <strong>{w}</strong>
                     </li>
                   );
@@ -235,15 +246,16 @@ function OtherRepMaxes(props: IOtherRepMaxesProps): JSX.Element {
         <div className="bg-border-neutral" style={{ width: "1px" }} />
         <div>
           <div className="mb-2">
-            <h2 className="text-lg font-bold">1RM Percentages</h2>
+            <h2 className="text-lg font-bold">{Translate_text("1RM Percentages")}</h2>
           </div>
           <ul>
             {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((r) => {
               const w = (Weight_rpeMultiplier(r, rpe ?? 10) * 100).toFixed(0);
               return (
                 <li key={r}>
-                  {r}RM{rpeEnabled ? <span className="text-text-secondary">@{rpe ?? 10}</span> : ""}:{" "}
-                  <strong>{w}%</strong>
+                  {r}
+                  {Translate_text("RM")}
+                  {rpeEnabled ? <span className="text-text-secondary">@{rpe ?? 10}</span> : ""}: <strong>{w}%</strong>
                 </li>
               );
             })}
@@ -263,65 +275,79 @@ function RepMaxInfo(props: { reps: number | undefined }): JSX.Element {
     <div className="max-w-2xl mx-auto text-left px-4">
       <div className="mb-6">
         <h2 className="text-lg font-bold mb-2">
-          What is a {reps}RM ({repsLabel}Rep Max)?
+          {Translate_text("What is a ")}
+          {reps}
+          {Translate_text("RM (")}
+          {repsLabel}
+          {Translate_text("Rep Max)?")}
         </h2>
         <p className="text-sm text-text-secondary">
-          Your {reps}RM is the maximum weight you can lift for exactly {reps} rep{reps > 1 ? "s" : ""} with proper form.{" "}
-          It's a key number in strength training. Many percentage-based programs like{" "}
+          {Translate_text("Your ")}
+          {reps}
+          {Translate_text("RM is the maximum weight you can lift for exactly ")}
+          {reps}
+          {Translate_text(" rep")}
+          {reps > 1 ? "s" : ""}
+          {Translate_text(" with proper form.")}{" "}
+          {Translate_text("It's a key number in strength training. Many percentage-based programs like")}{" "}
           <a href="/programs/the-rippler" className="text-link-color underline">
-            The Rippler
+            {Translate_text("The Rippler")}
           </a>
           ,{" "}
           <a href="/programs/the-5-3-1-program" className="text-link-color underline">
             5/3/1
           </a>
-          , and others use your {reps === 1 ? "1RM" : "1RM (derived from your " + reps + "RM)"} to calculate working
-          weights.
+          {Translate_text(", and others use your ")}
+          {reps === 1 ? "1RM" : "1RM (derived from your " + reps + "RM)"}
+          {Translate_text(" to calculate working weights.")}
         </p>
       </div>
 
       <div className="mb-6">
-        <h2 className="text-lg font-bold mb-2">How This Calculator Works</h2>
+        <h2 className="text-lg font-bold mb-2">{Translate_text("How This Calculator Works")}</h2>
         <p className="text-sm text-text-secondary">
-          Enter a weight you've lifted and how many reps you did with it. The calculator uses RPE (Rate of Perceived
-          Exertion) tables to estimate your {reps}RM. Unlike simple formula-based calculators (Epley, Brzycki), RPE
-          tables account for effort level and are calibrated from trained strength athletes' data, making them more
-          accurate, especially for higher rep ranges where simple formulas tend to diverge.
+          {Translate_text(
+            "Enter a weight you've lifted and how many reps you did with it. The calculator uses RPE (Rate of Perceived Exertion) tables to estimate your "
+          )}
+          {reps}
+          {Translate_text(
+            "RM. Unlike simple formula-based calculators (Epley, Brzycki), RPE tables account for effort level and are calibrated from trained strength athletes' data, making them more accurate, especially for higher rep ranges where simple formulas tend to diverge."
+          )}
         </p>
       </div>
 
       <div className="mb-6">
-        <h2 className="text-lg font-bold mb-2">FAQ</h2>
+        <h2 className="text-lg font-bold mb-2">{Translate_text("FAQ")}</h2>
         <div className="mb-4">
-          <h3 className="text-sm font-bold mb-1">How accurate are rep max calculators?</h3>
+          <h3 className="text-sm font-bold mb-1">{Translate_text("How accurate are rep max calculators?")}</h3>
           <p className="text-sm text-text-secondary">
-            Calculators give a good estimate, but accuracy decreases as the rep difference grows. Estimating your 1RM
-            from a 3-rep set is more reliable than from a 12-rep set. RPE-based calculations (used here) tend to be more
-            accurate than simple formulas because they account for effort level.
+            {Translate_text(
+              "Calculators give a good estimate, but accuracy decreases as the rep difference grows. Estimating your 1RM from a 3-rep set is more reliable than from a 12-rep set. RPE-based calculations (used here) tend to be more accurate than simple formulas because they account for effort level."
+            )}
           </p>
         </div>
         <div className="mb-4">
-          <h3 className="text-sm font-bold mb-1">What is RPE?</h3>
+          <h3 className="text-sm font-bold mb-1">{Translate_text("What is RPE?")}</h3>
           <p className="text-sm text-text-secondary">
-            RPE stands for Rate of Perceived Exertion. It's a scale from 1-10 that measures how hard a set felt. RPE 10
-            means you couldn't do another rep. RPE 8 means you had about 2 reps left in the tank. If you're unsure of
-            your RPE, leave it at 10.
+            {Translate_text(
+              "RPE stands for Rate of Perceived Exertion. It's a scale from 1-10 that measures how hard a set felt. RPE 10 means you couldn't do another rep. RPE 8 means you had about 2 reps left in the tank. If you're unsure of your RPE, leave it at 10."
+            )}
           </p>
         </div>
         <div className="mb-4">
-          <h3 className="text-sm font-bold mb-1">Should I test my 1RM directly?</h3>
+          <h3 className="text-sm font-bold mb-1">{Translate_text("Should I test my 1RM directly?")}</h3>
           <p className="text-sm text-text-secondary">
-            Testing a true 1RM is taxing on your body and carries injury risk, especially for beginners. Using a
-            calculator to estimate from a lighter set (e.g. 3-5 reps) is safer and usually accurate enough for
-            programming purposes.
+            {Translate_text(
+              "Testing a true 1RM is taxing on your body and carries injury risk, especially for beginners. Using a calculator to estimate from a lighter set (e.g. 3-5 reps) is safer and usually accurate enough for programming purposes."
+            )}
           </p>
         </div>
         <div className="mb-4">
-          <h3 className="text-sm font-bold mb-1">What is a Training Max (TM)?</h3>
+          <h3 className="text-sm font-bold mb-1">{Translate_text("What is a Training Max (TM)?")}</h3>
           <p className="text-sm text-text-secondary">
-            A Training Max is a percentage of your 1RM (typically 85-90%) used as the basis for calculating working
-            weights in programs like 5/3/1. It builds in a buffer so you're not always training at your absolute max.
-            Use the TM converter above to translate TM percentages into 1RM percentages.
+            {Translate_text(
+              "A Training Max is a percentage of your 1RM (typically 85-90%) used as the basis for calculating working weights in programs like 5/3/1. It builds in a buffer so you're not always training at your absolute max. Use the TM converter above to translate TM percentages into 1RM percentages."
+            )}
           </p>
         </div>
       </div>
@@ -341,8 +367,8 @@ function TMConverter(): JSX.Element {
       <div className="flex">
         <div>
           <div className="mb-2">
-            <h2 className="text-lg font-bold">Convert TM percentages into RM percentages</h2>
-            <p className="text-xs text-text-secondary">Enter what percentage of RM your TM is</p>
+            <h2 className="text-lg font-bold">{Translate_text("Convert TM percentages into RM percentages")}</h2>
+            <p className="text-xs text-text-secondary">{Translate_text("Enter what percentage of RM your TM is")}</p>
           </div>
           <div className="mb-2">
             <InputNumber
@@ -364,7 +390,10 @@ function TMConverter(): JSX.Element {
             {percentages.map((pct) => {
               return (
                 <li key={pct}>
-                  <strong>{pct}%</strong> TM = <strong>{MathUtils_roundTo05(tm * (pct / 100)).toFixed(1)}%</strong> 1RM
+                  <strong>{pct}%</strong>
+                  {Translate_text(" TM = ")}
+                  <strong>{MathUtils_roundTo05(tm * (pct / 100)).toFixed(1)}%</strong>
+                  {Translate_text(" 1RM")}
                 </li>
               );
             })}

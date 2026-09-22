@@ -1,0 +1,23 @@
+export const esPages: Readonly<Record<string, string>> = {
+  "Login | FORJA2.0": "Iniciar sesión | FORJA2.0",
+  "Verify Email | FORJA2.0": "Verificar correo | FORJA2.0",
+  "Reset Password | FORJA2.0": "Restablecer contraseña | FORJA2.0",
+  "Workout summary | FORJA2.0": "Resumen del entrenamiento | FORJA2.0",
+  "Affiliate Program | FORJA2.0": "Programa de afiliados | FORJA2.0",
+  "Affiliate Dashboard | FORJA2.0": "Panel de afiliados | FORJA2.0",
+  "Payments Dashboard | FORJA2.0": "Panel de pagos | FORJA2.0",
+  "Users Dashboard | FORJA2.0": "Panel de usuarios | FORJA2.0",
+  "Program Previewer | FORJA2.0": "Visor de programas | FORJA2.0",
+  "Liftoscript Prompt Generator (retired) | FORJA2.0": "Generador de prompts de Liftoscript (retirado) | FORJA2.0",
+  "FORJA2.0: Weight Lifting Tracking App | Admin": "FORJA2.0: app de registro de musculación | Admin",
+  "FORJA2.0: Affiliate Dashboard": "FORJA2.0: panel de afiliados",
+  "FORJA2.0: Affiliate Program": "FORJA2.0: programa de afiliados",
+  "FORJA2.0: Weight Lifting Tracking App": "FORJA2.0: app de registro de musculación",
+  "FORJA2.0: Weightlifting Tracker And Planner App": "FORJA2.0: app de registro y planificación de musculación",
+  "FORJA2.0 - Free Workout Tracker & Gym Planner App (iOS/Android)":
+    "FORJA2.0: registro de entrenamientos y planificador de gimnasio gratis (iOS/Android)",
+  "Your Programs List | FORJA2.0": "Lista de tus programas | FORJA2.0",
+  "User Dashboard | FORJA2.0": "Panel de usuario | FORJA2.0",
+  "Profile Page | FORJA2.0": "Página de perfil | FORJA2.0",
+  "Documentation - FORJA2.0": "Documentación — FORJA2.0",
+};

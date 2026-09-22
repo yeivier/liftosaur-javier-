@@ -1,4 +1,5 @@
 import { JSX, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { ExerciseItem } from "../../components/modalExercise";
 import { Multiselect } from "../../components/multiselect";
 import { equipmentName, Exercise_filterExercisesByNameAndType, Exercise_toKey } from "../../models/exercise";
@@ -28,12 +29,12 @@ export function AllExercisesContent(props: IAllExercisesContentProps): JSX.Eleme
     <div className="h-full px-4 pb-8 mx-auto" style={{ maxWidth: "30rem" }}>
       <nav className="pt-2 pb-2 text-xs text-text-secondary" aria-label="Breadcrumb">
         <a href="/" className="underline hover:text-text-primary">
-          Home
+          {Translate_text("Home")}
         </a>
         <span className="mx-1">/</span>
-        <span className="text-text-primary">Exercises</span>
+        <span className="text-text-primary">{Translate_text("Exercises")}</span>
       </nav>
-      <h1 className="pb-2 text-2xl font-bold text-center">All exercises</h1>
+      <h1 className="pb-2 text-2xl font-bold text-center">{Translate_text("All exercises")}</h1>
       <form data-testid="exercises-list" onSubmit={(e) => e.preventDefault()}>
         <input
           ref={textInput}

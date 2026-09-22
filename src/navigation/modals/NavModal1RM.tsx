@@ -1,4 +1,5 @@
 import { JSX, useCallback, useEffect, useRef } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { View } from "react-native";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { useAppState } from "../StateContext";
@@ -99,10 +100,10 @@ function NavModal1RMWorkout(props: { progressId: number }): JSX.Element {
         />
         <View className="flex-row items-center justify-between gap-4 mt-4">
           <Button name="rm1-modal-cancel" type="button" kind="grayv2" onClick={onClose}>
-            Cancel
+            {Translate_text("Cancel")}
           </Button>
           <Button name="rm1-modal-save" type="button" kind="purple" onClick={onSave}>
-            Save
+            {Translate_text("Save")}
           </Button>
         </View>
       </FormSheet>
@@ -176,10 +177,10 @@ function NavModal1RMPreview(props: { programId: string }): JSX.Element {
         />
         <View className="flex-row items-center justify-between gap-4 mt-4">
           <Button name="rm1-modal-cancel" type="button" kind="grayv2" onClick={onClose}>
-            Cancel
+            {Translate_text("Cancel")}
           </Button>
           <Button name="rm1-modal-save" type="button" kind="purple" onClick={onSave}>
-            Save
+            {Translate_text("Save")}
           </Button>
         </View>
       </FormSheet>

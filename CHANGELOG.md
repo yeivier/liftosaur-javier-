@@ -154,10 +154,10 @@ date: 2026-08-09
 title: Embrace Liftoscript, part 1: Redesign of the "Edit Program Exercise" screen
 ---
 
-One of the main sources of confusion and frustration in Liftosaur are the "Program" and "Edit Program Exercise" screens. They provide the UI to edit the program, but the problem is that the UI maps pretty poorly to Liftoscript.
+One of the main sources of confusion and frustration in FORJA2.0 are the "Program" and "Edit Program Exercise" screens. They provide the UI to edit the program, but the problem is that the UI maps pretty poorly to Liftoscript.
 And Liftoscript is still source of truth. Also, when you edit UI - you have little idea what Liftoscript it'd result to. Users get weird errors they have no idea how to resolve - because errors come from Liftoscript syntax, not UI.
 
-Historically, I tried to hide the complexity of Liftoscript, trying to lower the learning curve. But IMHO it doesn't work - I just need to be honest and upfront that knowing at least some Liftoscript basics is required to use Liftosaur effectively. So, I'm pivoting to the new approach - embracing Liftoscript!
+Historically, I tried to hide the complexity of Liftoscript, trying to lower the learning curve. But IMHO it doesn't work - I just need to be honest and upfront that knowing at least some Liftoscript basics is required to use FORJA2.0 effectively. So, I'm pivoting to the new approach - embracing Liftoscript!
 
 As a first step - now "Edit Program Exercise" is not a screen anymore, it's a bottom sheet, where you can edit Liftoscript. For that, I created a new native code editor from ground up. Typing code generally is not convenient on a phone, so it solves that by having 'structured' editing mode, where you can tap values, elements, and use the action pills to do actions with them. So, kinda a mix of UI and code. You can swipe between elements, and you can double-tap on text to switch to freeform editing. Each element also shows a hint what it means, so hopefully it helps to learn Liftoscript basics easier.
 
@@ -170,7 +170,7 @@ date: 2026-07-19
 title: Added Sleep & Nutrition tracking
 ---
 
-Liftosaur can now import your sleep duration, dietary calories, and protein from Apple Health or Google Health Connect. To turn it on, go to the Me screen, then scroll to "Apple Health" (or "Google Health Connect" on Android), and there enable "Sync Sleep & Nutrition".
+FORJA2.0 can now import your sleep duration, dietary calories, and protein from Apple Health or Google Health Connect. To turn it on, go to the Me screen, then scroll to "Apple Health" (or "Google Health Connect" on Android), and there enable "Sync Sleep & Nutrition".
 
 There's a new "Sleep & Nutrition" screen you can enter from the Me tab, with a trend graph and history for each metric. The import is read-only and happens on app open, daily aggregated. You can also soft-delete (hide) it from the list, and unhide if necessary.
 
@@ -299,7 +299,7 @@ title: Improved import history flow
 Import history although a pretty rarely used feature - is one of the most dangerous. With slightly wrong CSV file,
 you can massively mess up your workout history, and cleaning it up or restoring the account may be hard and painful.
 
-Now that functionality is way less destructive. When you import Liftosaur CSV or Hevy CSV, it'll show you
+Now that functionality is way less destructive. When you import FORJA2.0 CSV or Hevy CSV, it'll show you
 a preview screen, where it will display:
 
 * The workout history preview - the way you'd see it on the Home screen
@@ -314,11 +314,11 @@ date: 2026-05-31
 title: New native iOS and Android apps
 ---
 
-Before, the iOS and Android Liftosaur apps were webapps. Basically, a site, that is rendered inside a little browser window, wrapped as a native app. It worked fine, but didn't have that native feeling, screen navigations, gestures, native-looking modals, etc.
+Before, the iOS and Android FORJA2.0 apps were webapps. Basically, a site, that is rendered inside a little browser window, wrapped as a native app. It worked fine, but didn't have that native feeling, screen navigations, gestures, native-looking modals, etc.
 
 From now on, the new versions of the apps on App Store and Google Play are native apps. They look the same, but have smoother animations, native navigation and modals. Update and check them out!
 
-That was a massive ground-up rewrite of Liftosaur, so in case you find any bugs - please let me know in Discord or at **info@liftosaur.com**!
+That was a massive ground-up rewrite of FORJA2.0, so in case you find any bugs - please let me know in Discord or at **info@liftosaur.com**!
 
 ---
 date: 2026-05-02
@@ -341,7 +341,7 @@ date: 2026-03-08
 title: MCP Server and REST API
 ---
 
-Liftosaur now has an [MCP server](internal:/docs/mcp) - connect AI assistants like Claude, ChatGPT, or Gemini to manage your programs and workout history through natural conversation. Ask the AI to create programs, tweak progressions, log workouts, or analyze your training - it knows Liftoscript and can do it all for you.
+FORJA2.0 now has an [MCP server](internal:/docs/mcp) - connect AI assistants like Claude, ChatGPT, or Gemini to manage your programs and workout history through natural conversation. Ask the AI to create programs, tweak progressions, log workouts, or analyze your training - it knows Liftoscript and can do it all for you.
 
 There's also a [REST API](internal:/docs/api) - if you want direct programmatic access. Generate an API key in Settings and make HTTP requests to create programs, log workouts, simulate progressions, pull stats, etc.
 
@@ -392,7 +392,7 @@ date: 2026-01-29
 title: ⌚ Add Apple Watch Support
 ---
 
-If you have Premium and iPhone, you can now use Liftosaur on your Apple Watch to track your workouts. You can complete sets, see rest timers, view upcoming exercises, etc. You cannot modify the workout though (like change exercises or add sets, or change targets), for that you'll need to grab your phone.
+If you have Premium and iPhone, you can now use FORJA2.0 on your Apple Watch to track your workouts. You can complete sets, see rest timers, view upcoming exercises, etc. You cannot modify the workout though (like change exercises or add sets, or change targets), for that you'll need to grab your phone.
 
 Make sure to update the native iOS app to >= 6.31 to get the Watch app as well.
 
@@ -883,7 +883,7 @@ date: 2025-01-17
 title: Share workouts on Social Media
 ---
 
-You can share your finished workouts on Instagram (and once Tiktok approves Liftosaur app - on Tiktok)
+You can share your finished workouts on Instagram (and once Tiktok approves FORJA2.0 app - on Tiktok)
 
 You can do it from the congratulations screen, or if you tap on one of the past workouts. This replaces outdated "Share" functionality where you could share via a post on Facebook or Twitter.
 
@@ -1100,7 +1100,7 @@ title: Changed how equipment works and added multi-gym support
 
 ⚠️ This is a breaking change! Please read! ⚠️
 
-Exercises in Liftosaur used to consist of 2 parts - exercise name and equipment. For example: **Bench Press** and **Dumbbell**, or **Squat** and **Barbell**. And when you select an exercise, you have to pick both equipment and name.
+Exercises in FORJA2.0 used to consist of 2 parts - exercise name and equipment. For example: **Bench Press** and **Dumbbell**, or **Squat** and **Barbell**. And when you select an exercise, you have to pick both equipment and name.
 
 There were several issues with that, but mainly two:
 
@@ -1292,7 +1292,7 @@ date: 2024-01-27
 title: ✨ New "Experimental" programs (aka "in-app Workout Planner") ✨
 ---
 
-Massive update - now there's a way to build Liftosaur programs using completely different syntax - the one that you used in the [Workout Planner](https://www.liftosaur.com/planner)
+Massive update - now there's a way to build FORJA2.0 programs using completely different syntax - the one that you used in the [Workout Planner](https://www.liftosaur.com/planner)
 
 The syntax got extended with the new features, making it pretty much as powerful as a regular way of building programs. You now can use Liftoscript within the new syntax to describe the progressions.
 
@@ -1302,7 +1302,7 @@ To create that "experimental" program, just go to **"Choose Program"** screen, t
 
 Read more about new syntax and how to write programs that way [in the blogpost.](https://www.liftosaur.com/blog/posts/new-experimental-program-editor/)
 
-IMHO it should be much easier to build programs this way. Eventually I'd like to make it a default way of writing programs in Liftosaur. So, check it out, and don't hesitate to ask questions in our Discord channel, subreddit, or just shooting email to **info@liftosaur.com**!
+IMHO it should be much easier to build programs this way. Eventually I'd like to make it a default way of writing programs in FORJA2.0. So, check it out, and don't hesitate to ask questions in our Discord channel, subreddit, or just shooting email to **info@liftosaur.com**!
 
 ---
 date: 2024-01-06
@@ -1322,7 +1322,7 @@ date: 2024-01-03
 title: Added "Full Program" mode to the Workout Planner
 ---
 
-Now there's a new "Full Program" mode in the [Workout Planner](https://www.liftosaur.com/planner). You can activate it by clicking on the ::icon-doc:: icon near the "Convert to Liftosaur program" button. It represents the planner program as one big text blob. That could be pretty convenient for editing programs, especially multi-week ones. You can save those programs as text files, edit them in any text editor, share them as text blobs.
+Now there's a new "Full Program" mode in the [Workout Planner](https://www.liftosaur.com/planner). You can activate it by clicking on the ::icon-doc:: icon near the "Convert to FORJA2.0 program" button. It represents the planner program as one big text blob. That could be pretty convenient for editing programs, especially multi-week ones. You can save those programs as text files, edit them in any text editor, share them as text blobs.
 
 It adds 2 new syntax constructions you need to use in the "Full Program" mode - for weeks and for days. To create a week, you type a week name from a new line, starting with a hash sign. Like **# Week 1**. To create a week - same thing, just starting with 2 hash signs, like **## Day 1**.
 
@@ -1350,7 +1350,7 @@ title: You can now fully delete your account
 
 Added deleting account on the cloud. It's available on the Settings - Account screen.
 
-Now you can be in control of your data, and fully wipe out all your data from the Liftosaur servers if necessary!
+Now you can be in control of your data, and fully wipe out all your data from the FORJA2.0 servers if necessary!
 
 ---
 date: 2023-10-16
@@ -1366,14 +1366,14 @@ date: 2023-09-27
 title: Offline mode
 ---
 
-Liftosaur now can work offline. If there's no Internet, it of course won't be able to load all the built-in programs, and it won't be able to sync your data to the server. But it'll still work, all your history and programs would be there, and it will just sync the data next time when Internet is available if you're logged in.
+FORJA2.0 now can work offline. If there's no Internet, it of course won't be able to load all the built-in programs, and it won't be able to sync your data to the server. But it'll still work, all your history and programs would be there, and it will just sync the data next time when Internet is available if you're logged in.
 
 ---
 date: 2023-09-22
 title: Moving Average on the Measurement Graphs
 ---
 
-Now, on the Measurement screen, for the graphs there you can add moving average graph. It's super useful especially for tracking bodyweight or body fat, due to high volatility of those measurements. This was added by awesome [@123marvin123](https://github.com/123marvin123), thank you so so much for contributing and adding this feature! It'll help a lot of people tracking their weight, and it's a great addition to Liftosaur. Thank you very very much!
+Now, on the Measurement screen, for the graphs there you can add moving average graph. It's super useful especially for tracking bodyweight or body fat, due to high volatility of those measurements. This was added by awesome [@123marvin123](https://github.com/123marvin123), thank you so so much for contributing and adding this feature! It'll help a lot of people tracking their weight, and it's a great addition to FORJA2.0. Thank you very very much!
 
 ---
 date: 2023-09-20
@@ -1426,7 +1426,7 @@ date: 2023-08-04
 title: Added RPE support
 ---
 
-RPE (Rating of Perceived Exertion) now is well supported in Liftosaur. It's how hard was the exercise, on the scale of 0-10, where 10 is the hardest (you couldn't make any more reps)
+RPE (Rating of Perceived Exertion) now is well supported in FORJA2.0. It's how hard was the exercise, on the scale of 0-10, where 10 is the hardest (you couldn't make any more reps)
 
 Now you can enable RPE support for your exercises (in Extra Features section), and each set will have 2 additional fields: **RPE** and **Log RPE**.
 
@@ -1456,7 +1456,7 @@ date: 2023-07-27
 title: Import history from Hevy app
 ---
 
-There's a new item in Settings - "Import history from other apps". It opens a modal, where you can choose Hevy app, and upload CSV file - and it'll import the history from the file into Liftosaur.
+There's a new item in Settings - "Import history from other apps". It opens a modal, where you can choose Hevy app, and upload CSV file - and it'll import the history from the file into FORJA2.0.
 
 ---
 date: 2023-07-24
@@ -1505,7 +1505,7 @@ date: 2023-06-30
 title: Bodyfat tracking
 ---
 
-Liftosaur is [open-source](https://github.com/astashov/liftosaur), so anyone can see the code, and potentially add features. Amazing [@codymurdoc](https://github.com/codymurdoc) went ahead and added bodyfat tracking support to Liftosaur! This is so cool, thank you so much! It's really impressing you were able to figure out how to do that in pretty large codebase, and add it in a clean and nice way, it's a pretty big feature. I'm really impressed!
+FORJA2.0 is [open-source](https://github.com/astashov/liftosaur), so anyone can see the code, and potentially add features. Amazing [@codymurdoc](https://github.com/codymurdoc) went ahead and added bodyfat tracking support to FORJA2.0! This is so cool, thank you so much! It's really impressing you were able to figure out how to do that in pretty large codebase, and add it in a clean and nice way, it's a pretty big feature. I'm really impressed!
 
 ---
 date: 2023-06-25
@@ -1638,7 +1638,7 @@ title: Discord Server
 
 We've got a Discord server now! You can join it here: [::icon-discord:: Discord Server](https://discord.com/invite/AAh3cvdBRs)
 
-Join and ask questions there, suggest features, leave feedback, or just chat with other Liftosaur users.
+Join and ask questions there, suggest features, leave feedback, or just chat with other FORJA2.0 users.
 
 ---
 date: 2023-03-01

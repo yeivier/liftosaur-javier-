@@ -1,4 +1,4 @@
-# Liftosaur
+# FORJA2.0
 
 It's a mobile and web app. Users can create weightlifting programs with it (single and multi-weeks) and track their
 progress by following those programs. There're built-in popular programs, like 5/3/1, GZCLP, Starting Strength, Strong Curves, and many others. Users also can create their own programs.

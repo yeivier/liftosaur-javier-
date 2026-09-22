@@ -17,7 +17,7 @@ Xcode will create a stub `LiftosaurWatch/` folder with default `App.swift` / `Co
 
 In Xcode's Project Navigator:
 
-1. Right-click the new `LiftosaurWatch` group → **Add Files to "Liftosaur"…**
+1. Right-click the new `LiftosaurWatch` group → **Add Files to "FORJA2.0"…**
 2. Select **all files** from `ios/LiftosaurWatch/` on disk:
    - `LiftosaurWatchApp.swift`, `ContentView.swift`, `LiftosaurColor.swift`, `WatchLayout.swift`
    - `Engine/` (12 files)
@@ -44,7 +44,7 @@ Select the LiftosaurWatch target → Signing & Capabilities:
 
 ## 5. Embed in main app
 
-Xcode does this automatically when you create a watchOS app target inside an iOS project: a "Embed Watch Content" build phase is added to the `Liftosaur` target. Verify it's there.
+Xcode does this automatically when you create a watchOS app target inside an iOS project: a "Embed Watch Content" build phase is added to the `FORJA2.0` target. Verify it's there.
 
 ## 6. Build & run
 

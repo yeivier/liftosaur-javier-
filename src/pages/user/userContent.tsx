@@ -1,4 +1,5 @@
 import { JSX, Fragment } from "react";
+import { Translate_text } from "../../i18n/translate";
 import "../../models/state";
 import { equipmentName, Exercise_fromKey, Exercise_get } from "../../models/exercise";
 import { History_findAllMaxSetsPerId } from "../../models/history";
@@ -26,22 +27,22 @@ export function UserContent(props: IProps): JSX.Element {
       <h1 className="mb-6">
         {settings.nickname ? (
           <Fragment>
-            <div className="text-sm text-gray-500 uppercase">User Profile</div>
+            <div className="text-sm text-gray-500 uppercase">{Translate_text("User Profile")}</div>
             <div className="text-3xl font-bold">{settings.nickname}</div>
           </Fragment>
         ) : (
-          <span className="text-3xl font-bold">User Profile</span>
+          <span className="text-3xl font-bold">{Translate_text("User Profile")}</span>
         )}
       </h1>
       {currentProgram && (
         <p>
-          <span className="text-gray-600">Current program: </span>
+          <span className="text-gray-600">{Translate_text("Current program: ")}</span>
           <span className="font-bold">{currentProgram.name}</span>
         </p>
       )}
       {hasMainLifts && (
         <div className="mb-16">
-          <h2 className="my-4 text-xl font-bold">Main Lifts Progress</h2>
+          <h2 className="my-4 text-xl font-bold">{Translate_text("Main Lifts Progress")}</h2>
           {mainLifts.map((id) =>
             maxSets[id] != null ? (
               <Entry exerciseTypeStr={id} maxSet={maxSets[id]!} history={history} settings={settings} />

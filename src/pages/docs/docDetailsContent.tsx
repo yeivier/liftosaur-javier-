@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { IDocIndexEntry } from "../../models/doc";
 import { Markdown } from "../../components/markdown";
 
@@ -14,11 +15,11 @@ export function DocDetailsContent(props: IDocDetailsContentProps): JSX.Element {
     <section className="px-4 py-8 mx-auto" style={{ maxWidth: 800 }}>
       <nav className="pt-2 pb-2 text-xs text-text-secondary" aria-label="Breadcrumb">
         <a href="/" className="underline hover:text-text-primary">
-          Home
+          {Translate_text("Home")}
         </a>
         <span className="mx-1">/</span>
         <a href="/doc" className="underline hover:text-text-primary">
-          Documentation
+          {Translate_text("Documentation")}
         </a>
         <span className="mx-1">/</span>
         <span className="text-text-primary">{doc.title}</span>

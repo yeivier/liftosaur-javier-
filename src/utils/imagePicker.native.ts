@@ -7,7 +7,7 @@ async function ensureCameraPermission(): Promise<boolean> {
   }
   const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.CAMERA, {
     title: "Camera permission",
-    message: "Liftosaur needs access to your camera to take a photo.",
+    message: "FORJA2.0 needs access to your camera to take a photo.",
     buttonPositive: "OK",
     buttonNegative: "Cancel",
   });

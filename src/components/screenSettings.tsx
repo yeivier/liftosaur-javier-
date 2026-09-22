@@ -483,7 +483,7 @@ function ScreenSettingsInner(props: IProps): JSX.Element {
       />
       {Features_isEnabled("affiliates", props.user?.id ?? props.tempUserId) && (
         <>
-          <GroupHeader name="Earn money with Liftosaur" topPadding={true} />
+          <GroupHeader name="Earn money with FORJA2.0" topPadding={true} />
           <MenuItem
             expandName={true}
             name="Affiliate Program"

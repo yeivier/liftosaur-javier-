@@ -1,4 +1,5 @@
 import { JSX, useCallback, useMemo, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import deepmerge from "deepmerge";
 import { lb } from "lens-shmens";
 import { ProgramPreviewPlaygroundDay } from "../../../components/preview/programPreviewPlaygroundDay";
@@ -30,17 +31,20 @@ export function CreateYourOwn(): JSX.Element {
           <div>
             <IconEditor color={Tailwind_semantic().icon.purple} />
           </div>
-          <div className="font-semibold">Workout Editor</div>
+          <div className="font-semibold">{Translate_text("Workout Editor")}</div>
         </div>
       </div>
-      <h2 className="px-4 mb-4 text-3xl font-bold text-center md:text-4xl">Create your own programs</h2>
+      <h2 className="px-4 mb-4 text-3xl font-bold text-center md:text-4xl">
+        {Translate_text("Create your own programs")}
+      </h2>
       <p className="px-4 mx-auto mb-8 text-base leading-relaxed text-left md:text-center" style={{ maxWidth: "40rem" }}>
-        Write your weightlifting program in plain text with{" "}
+        {Translate_text("Write your weightlifting program in plain text with")}{" "}
         <a href="/doc" target="_blank" className="font-semibold text-text-purple underline">
-          Liftoscript
+          {Translate_text("Liftoscript")}
         </a>
-        ! Specify exercises by week/day, sets, and progressive overload rules — and use optional scripting to build
-        advanced progression schemes. .
+        {Translate_text(
+          "! Specify exercises by week/day, sets, and progressive overload rules — and use optional scripting to build advanced progression schemes. ."
+        )}
       </p>
       <div className="mb-6">
         <MainEditorAndPlayground />
@@ -101,11 +105,12 @@ Bench Press / 3x8 100lb / progress: dp(5lb, 8, 12)
   return (
     <div className="relative flex flex-col gap-2 mb-1 md:gap-12 md:flex-row">
       <div className="flex-1 min-w-0 px-4">
-        <div className="mt-2 mb-2 text-2xl font-bold md:mt-8">See it in action:</div>
+        <div className="mt-2 mb-2 text-2xl font-bold md:mt-8">{Translate_text("See it in action:")}</div>
         <div className="mb-4 leading-relaxed">
-          Change the sets, reps or weight or add "Bicep Curl /{" "}
+          {Translate_text('Change the sets, reps or weight or add "Bicep Curl /')}{" "}
           <span style={{ color: Tailwind_semantic().syntax.atom }}>3x10</span> /{" "}
-          <span style={{ color: Tailwind_semantic().syntax.atom }}>12</span>" on a new line.
+          <span style={{ color: Tailwind_semantic().syntax.atom }}>12</span>
+          {Translate_text('" on a new line.')}
         </div>
         <PlannerEditorView
           name="Exercises"
@@ -173,12 +178,13 @@ Bench Press / 3x8 100lb / progress: dp(5lb, 8, 12)
 function EditorInfoText(): JSX.Element {
   return (
     <div className="mt-4 leading-relaxed">
-      Custom progressions, myo-reps, drop sets, manipulating weight, reps, RPE or even rest timer via scripts — anything
-      is possible.{" "}
+      {Translate_text(
+        "Custom progressions, myo-reps, drop sets, manipulating weight, reps, RPE or even rest timer via scripts — anything is possible."
+      )}{" "}
       <a href="/doc" target="_blank" className="font-semibold text-text-purple underline">
-        Check the docs
+        {Translate_text("Check the docs")}
       </a>{" "}
-      to learn more about Liftoscript.
+      {Translate_text("to learn more about Liftoscript.")}
     </div>
   );
 }

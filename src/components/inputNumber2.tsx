@@ -1,4 +1,5 @@
 import React, { JSX, RefObject, forwardRef, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { createPortal } from "react-dom";
 import { StringUtils_dashcase } from "../utils/string";
 import { IconKeyboardClose } from "./icons/iconKeyboardClose";
@@ -733,7 +734,7 @@ const CustomKeyboardInner = forwardRef((props: ICustomKeyboardProps, ref: React.
                 className="flex items-center justify-center w-scaled-24 px-2 py-1 border rounded keyboard-close border-border-cardpurple bg-background-cardpurple"
                 onClick={props.onShowCalculator}
               >
-                <span className="mr-2">RM</span>
+                <span className="mr-2">{Translate_text("RM")}</span>
                 <span>
                   <IconCalculator size={14} />
                 </span>

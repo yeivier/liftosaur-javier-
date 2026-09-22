@@ -1,4 +1,4 @@
-# Liftosaur architecture
+# FORJA2.0 architecture
 
 It's a web app, with 2 native apps - thin wrappers that implement some native features and render the webview with this app. The web app is a PWA.
 

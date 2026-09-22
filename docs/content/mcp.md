@@ -1,7 +1,7 @@
 ---
 id: mcp
 title: "MCP Server"
-shortDescription: "Connect AI assistants like Claude or ChatGPT to Liftosaur - create programs, log workouts, and analyze training through natural conversation."
+shortDescription: "Connect AI assistants like Claude or ChatGPT to FORJA2.0 - create programs, log workouts, and analyze training through natural conversation."
 order: 2
 category: "Integrations"
 datePublished: "2026-03-07"
@@ -10,15 +10,15 @@ dateModified: "2026-08-24"
 
 ## What is MCP?
 
-MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools. Liftosaur has an MCP server - so you can ask Claude, ChatGPT, or any MCP-compatible assistant to manage your programs and workout history through natural conversation.
+MCP (Model Context Protocol) is an open standard that lets AI assistants connect to external tools. FORJA2.0 has an MCP server - so you can ask Claude, ChatGPT, or any MCP-compatible assistant to manage your programs and workout history through natural conversation.
 
 For example, you could say "Create a 4-day upper/lower program with linear progression" and the AI will write the Liftoscript code, validate it, and save it to your account.
 
 Requires a premium subscription.
 
-## Connecting to Liftosaur
+## Connecting to FORJA2.0
 
-The Liftosaur MCP server URL is:
+The FORJA2.0 MCP server URL is:
 
 ```
 https://www.liftosaur.com/mcp
@@ -26,8 +26,8 @@ https://www.liftosaur.com/mcp
 
 There are two ways to authenticate:
 
-- **OAuth 2.1** (default) - On first use, your AI client opens a browser window to sign in with your Liftosaur account, then handles token refresh automatically. Best for clients with a built-in connector UI (Claude.ai, ChatGPT).
-- **API key** - Pass a Liftosaur API key (the same kind used for the [REST API](/docs/api)) as a Bearer token. No browser sign-in needed - handy for command-line clients or config-file setups. See [Using an API key](#using-an-api-key) below.
+- **OAuth 2.1** (default) - On first use, your AI client opens a browser window to sign in with your FORJA2.0 account, then handles token refresh automatically. Best for clients with a built-in connector UI (Claude.ai, ChatGPT).
+- **API key** - Pass a FORJA2.0 API key (the same kind used for the [REST API](/docs/api)) as a Bearer token. No browser sign-in needed - handy for command-line clients or config-file setups. See [Using an API key](#using-an-api-key) below.
 
 Below are setup instructions for each major AI platform.
 
@@ -35,7 +35,7 @@ Below are setup instructions for each major AI platform.
 
 If you'd rather not go through the OAuth browser flow, you can authenticate with an API key instead. This is the same key used by the REST API.
 
-1. Open Liftosaur and go to **Settings**
+1. Open FORJA2.0 and go to **Settings**
 2. Tap **API Keys**
 3. Tap **Create API Key** and give it a name
 4. Copy the key - it starts with `lftsk_`
@@ -55,9 +55,9 @@ Most clients that let you set custom headers (Claude Code, config-file setups) s
 3. Click **Add custom connector** at the bottom
 4. Paste the URL: `https://www.liftosaur.com/mcp`
 5. Click **Add**
-6. You'll be redirected to sign in with your Liftosaur account
+6. You'll be redirected to sign in with your FORJA2.0 account
 
-After that, Liftosaur tools will be available in your conversations. You can also add it from the chat input - click the **Search and tools** menu, then **Add connectors**.
+After that, FORJA2.0 tools will be available in your conversations. You can also add it from the chat input - click the **Search and tools** menu, then **Add connectors**.
 
 ### Claude Desktop
 
@@ -68,7 +68,7 @@ After that, Liftosaur tools will be available in your conversations. You can als
 3. Click **Add custom connector**
 4. Paste the URL: `https://www.liftosaur.com/mcp`
 5. Click **Add**
-6. You'll be redirected to sign in with your Liftosaur account
+6. You'll be redirected to sign in with your FORJA2.0 account
 
 #### Option B: Via config file
 
@@ -77,7 +77,7 @@ Claude Desktop doesn't support remote servers directly via `claude_desktop_confi
 1. Click the **Settings** icon (bottom-left corner)
 2. Go to the **Developer** tab
 3. Click **Edit Config** - this opens `claude_desktop_config.json`
-4. Add the Liftosaur server:
+4. Add the FORJA2.0 server:
 
 ```json
 {
@@ -91,7 +91,7 @@ Claude Desktop doesn't support remote servers directly via `claude_desktop_confi
 ```
 
 5. Save the file and restart Claude Desktop
-6. On first use, Claude will open your browser to authenticate with Liftosaur
+6. On first use, Claude will open your browser to authenticate with FORJA2.0
 
 To use an API key instead of the OAuth browser flow, pass it as a header via `mcp-remote`:
 
@@ -130,21 +130,21 @@ claude mcp add liftosaur --transport http https://www.liftosaur.com/mcp \
 
 ### ChatGPT
 
-Liftosaur is available in ChatGPT's Plugin Directory. You don't need to enable Developer Mode or enter the MCP server URL manually.
+FORJA2.0 is available in ChatGPT's Plugin Directory. You don't need to enable Developer Mode or enter the MCP server URL manually.
 
-1. Open [Liftosaur in the ChatGPT Plugin Directory](https://chatgpt.com/plugins/plugin_asdk_app_6a5bb283d24481918813e6efbc3d66ad), or open **Plugins** in ChatGPT and search for **Liftosaur**
+1. Open [FORJA2.0 in the ChatGPT Plugin Directory](https://chatgpt.com/plugins/plugin_asdk_app_6a5bb283d24481918813e6efbc3d66ad), or open **Plugins** in ChatGPT and search for **FORJA2.0**
 2. Select **Connect**
-3. Sign in with your Liftosaur account and approve access
-4. In a chat, mention **@Liftosaur** in your prompt. You can also select **+** -> **More**, then choose Liftosaur
+3. Sign in with your FORJA2.0 account and approve access
+4. In a chat, mention **@Liftosaur** in your prompt. You can also select **+** -> **More**, then choose FORJA2.0
 
-Plugin availability depends on your ChatGPT plan, region, and workspace settings. If **Connect** is disabled by your workspace administrator, ask them to enable Liftosaur for your role. See [OpenAI's guide to plugins in ChatGPT](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex) for more details.
+Plugin availability depends on your ChatGPT plan, region, and workspace settings. If **Connect** is disabled by your workspace administrator, ask them to enable FORJA2.0 for your role. See [OpenAI's guide to plugins in ChatGPT](https://help.openai.com/en/articles/20001256-plugins-in-chatgpt-and-codex) for more details.
 
 ### Gemini CLI
 
 Gemini CLI supports remote MCP servers via `settings.json`.
 
 1. Open `~/.gemini/settings.json` (create it if it doesn't exist)
-2. Add the Liftosaur server:
+2. Add the FORJA2.0 server:
 
 ```json
 {
@@ -160,7 +160,7 @@ Gemini CLI supports remote MCP servers via `settings.json`.
 
 3. Start a Gemini CLI session
 4. Run `/mcp` to verify the server is connected
-5. On first use, run `/mcp auth liftosaur` to authenticate with your Liftosaur account
+5. On first use, run `/mcp auth liftosaur` to authenticate with your FORJA2.0 account
 
 To use an API key instead, drop `authProviderType` and pass the key as a header:
 
@@ -315,4 +315,4 @@ The AI reads your current program, modifies the Liftoscript to add the exercises
 
 ## REST API
 
-If you want direct programmatic access instead of going through an AI assistant, Liftosaur also has a [REST API](/docs/api) with the same capabilities. Generate an API key in Settings and make HTTP requests directly.
+If you want direct programmatic access instead of going through an AI assistant, FORJA2.0 also has a [REST API](/docs/api) with the same capabilities. Generate an API key in Settings and make HTTP requests directly.

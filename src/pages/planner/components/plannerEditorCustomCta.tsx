@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { lb } from "lens-shmens";
 import { ILensDispatch } from "../../../utils/useLensReducer";
 import { IPlannerState } from "../models/types";
@@ -38,7 +39,7 @@ export function PlannerEditorCustomCta(props: IPlannerEditorCustomCtaProps): JSX
           );
         }}
       >
-        Add custom exercise
+        {Translate_text("Add custom exercise")}
       </button>
     );
   } else {

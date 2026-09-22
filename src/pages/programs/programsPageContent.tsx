@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Settings_build } from "../../models/settings";
 import { ProgramsTabContent } from "./programList/programsTabContent";
 import { IProgramIndexEntry } from "../../models/program";
@@ -22,12 +23,12 @@ export function ProgramsPageContent(props: IProgramsPageContentProps): JSX.Eleme
     <div className="px-4 pb-8">
       <nav className="pt-2 pb-2 text-xs text-text-secondary" aria-label="Breadcrumb">
         <a href="/" className="underline hover:text-text-primary">
-          Home
+          {Translate_text("Home")}
         </a>
         <span className="mx-1">/</span>
-        <span className="text-text-primary">Programs</span>
+        <span className="text-text-primary">{Translate_text("Programs")}</span>
       </nav>
-      <h1 className="pb-6 text-3xl font-bold">Weightlifting Programs & Workout Routines</h1>
+      <h1 className="pb-6 text-3xl font-bold">{Translate_text("Weightlifting Programs & Workout Routines")}</h1>
 
       <ProgramsFilterSort filter={filter} sort={sort} onFilterChange={setFilter} onSortChange={setSort} />
 
