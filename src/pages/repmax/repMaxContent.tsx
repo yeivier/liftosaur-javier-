@@ -16,7 +16,6 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
   const [knownRpe, setKnownRpe] = useState<number>(10);
   const [knownWeight, setKnownWeight] = useState<number>(100);
   const [reps, setReps] = useState<number | undefined>(props.reps);
-  const repsWord = reps ? MathUtils_toWord(reps) : undefined;
   const [rpe, setRpe] = useState<number | undefined>(10);
   const weight =
     knownReps != null && knownWeight != null && reps
@@ -52,10 +51,8 @@ export function RepMaxContent(props: IRepMaxContentProps): JSX.Element {
     <div className="px-2 text-center">
       <div className="mb-4">
         <h1 className="px-6 text-2xl font-bold">
-          {repsWord ? `${StringUtils_capitalize(repsWord)} ` : ""}
-          {Translate_text("Rep Max (")}
-          {reps != null ? reps : ""}
-          {Translate_text("RM) calculator")}
+          {Translate_text("Rep Max Calculator")}
+          {reps != null ? ` — ${reps}RM` : ""}
         </h1>
         <div>
           <LinkButton name="enable-rpe" onClick={() => setRpeEnabled(!rpeEnabled)}>
