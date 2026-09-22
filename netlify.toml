@@ -1,0 +1,11 @@
+# dist/ is gitignored, so Netlify builds the web bundles itself. build:prepare is the
+# right target rather than plain webpack: it first generates the theme, the exercise
+# descriptions and the program data that the bundles import.
+# npm run build adds an AWS source-map upload, which has no credentials here.
+[build]
+  command = "npm run build:prepare"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NODE_OPTIONS = "--max-old-space-size=4096"
