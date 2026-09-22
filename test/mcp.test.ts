@@ -280,7 +280,7 @@ describe("MCP", () => {
       const clientId = await registerClient("https://evil.example/cb");
       const result = await getConsentPage(clientId, "https://evil.example/cb");
       expect(result.body).to.include("evil.example");
-      expect(result.body.toLowerCase()).to.include("verified");
+      expect(result.body.toLowerCase()).to.include("verificado");
     });
 
     it("GET consent page forbids framing (anti-clickjacking)", async () => {

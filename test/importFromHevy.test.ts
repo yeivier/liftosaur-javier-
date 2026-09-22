@@ -141,7 +141,7 @@ describe("ImportFromHevy", () => {
     expect(result.historyRecords[0].endTime).to.equal(result.historyRecords[0].startTime);
   });
 
-  it("throws a Liftosaur-specific error for a Liftosaur CSV", () => {
+  it("throws a FORJA2.0-specific error for a FORJA2.0 CSV", () => {
     const liftosaurCsv =
       "Workout DateTime,Program,Day Name,Exercise,Is Warmup Set?,Required Reps,Completed Reps,Is AMRAP?," +
       "Required RPE,Completed RPE,Log RPE?,Required Weight Value,Required Weight Unit,Completed Weight Value," +
@@ -149,7 +149,7 @@ describe("ImportFromHevy", () => {
       "2026-03-01T10:00:00.000Z,P,Day 1,Squat,0,5,5,0,,,0,225,lb,225,lb,0,2026-03-01T10:05:00.000Z,,,";
     expect(() => ImportFromHevy_convertHevyCsvToHistoryRecords(liftosaurCsv, buildSettings())).to.throw(
       ImportFileError,
-      /Liftosaur/
+      /FORJA2\.0/
     );
   });
 
