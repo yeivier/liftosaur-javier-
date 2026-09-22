@@ -1,4 +1,5 @@
 import { JSX, useEffect, useRef } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IAllCustomExercises } from "../../../types";
 import { PlannerEditor } from "../plannerEditor";
 import { PlannerSyntaxError } from "../plannerExerciseEvaluator";
@@ -122,7 +123,9 @@ export function EvalResult(props: IEvalResultProps): JSX.Element | null {
     const customErrorCta = props.onCustomErrorCta && props.onCustomErrorCta(props.error);
     return (
       <span className="px-2 text-sm">
-        <span className={props.redTheme ? "text-text-alwayswhite" : "text-text-error"}>Error: </span>
+        <span className={props.redTheme ? "text-text-alwayswhite" : "text-text-error"}>
+          {Translate_text("Error: ")}
+        </span>
         <span className={`font-bold ${props.redTheme ? "text-text-alwayswhite" : "text-text-error"}`}>
           {props.error.message}
         </span>

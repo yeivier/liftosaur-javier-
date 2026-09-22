@@ -1,4 +1,5 @@
 import { JSX, memo } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { inputClassName } from "../../../components/input";
 import { Weight_isPct, Weight_buildPct, Weight_build } from "../../../models/weight";
 import { IPercentage, IProgramState, ISettings, IWeight } from "../../../types";
@@ -54,7 +55,7 @@ export const StateVars = memo((props: IStateVarsProps): JSX.Element | null => {
   return (
     <div className="flex justify-start">
       <div style={{ width: "10em" }}>
-        <h4 className="text-sm italic">State variables:</h4>
+        <h4 className="text-sm italic">{Translate_text("State variables:")}</h4>
         <ul>{varEls}</ul>
       </div>
     </div>

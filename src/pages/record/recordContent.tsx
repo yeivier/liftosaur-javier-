@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import "../../models/state";
 import { DateUtils_format } from "../../utils/date";
 import { IRecordResponse } from "../../api/service";
@@ -124,10 +125,10 @@ function Entry(props: IEntryProps): JSX.Element {
         <div className="flex-1">
           {prSet != null && (
             <div className="my-2 text-lg">
-              <strong>🏆 New Personal Record</strong>: <SetView set={prSet} units={units} />
+              <strong>{Translate_text("🏆 New Personal Record")}</strong>: <SetView set={prSet} units={units} />
             </div>
           )}
-          <p>Completed sets x reps x weight</p>
+          <p>{Translate_text("Completed sets x reps x weight")}</p>
           <ul>
             {setGroups
               .filter((group) => (group[0]?.completedReps || 0) > 0)
@@ -143,10 +144,10 @@ function Entry(props: IEntryProps): JSX.Element {
           </ul>
           <div className="mt-4">
             <p>
-              <strong>Total Weight</strong>: {Weight_display(totalWeight)}
+              <strong>{Translate_text("Total Weight")}</strong>: {Weight_display(totalWeight)}
             </p>
             <p>
-              <strong>Total reps</strong>: {totalReps}
+              <strong>{Translate_text("Total reps")}</strong>: {totalReps}
             </p>
           </div>
         </div>

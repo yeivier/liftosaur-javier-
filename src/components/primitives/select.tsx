@@ -1,4 +1,5 @@
 import React, { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 
 interface ISelectOption {
   value: string;
@@ -20,6 +21,6 @@ export function Select(props: ISelectProps): JSX.Element {
       value: props.value,
       onChange: (e: React.ChangeEvent<HTMLSelectElement>) => props.onChange(e.currentTarget.value),
     },
-    props.options.map((o) => React.createElement("option", { key: o.value, value: o.value }, o.label))
+    props.options.map((o) => React.createElement("option", { key: o.value, value: o.value }, Translate_text(o.label)))
   );
 }

@@ -116,7 +116,7 @@ class LiftosaurEngine {
         await runOnJSQueue {
             let argsStr = self.prepareArgs(globals: globals, args: args)
             self.logCall(method)
-            return self.evalAndDecode("Liftosaur.\(method)(\(argsStr))")
+            return self.evalAndDecode("FORJA2.0.\(method)(\(argsStr))")
         }
     }
 
@@ -125,7 +125,7 @@ class LiftosaurEngine {
         await runOnJSQueue {
             let argsStr = self.prepareArgs(globals: globals, args: args)
             self.logCall(method)
-            return self.evalAndDecodeOptional("Liftosaur.\(method)(\(argsStr))")
+            return self.evalAndDecodeOptional("FORJA2.0.\(method)(\(argsStr))")
         }
     }
 
@@ -134,7 +134,7 @@ class LiftosaurEngine {
         await runOnJSQueue {
             let argsStr = self.prepareArgs(globals: globals, args: args)
             self.logCall(method)
-            return self.evalAndExtractStorage("Liftosaur.\(method)(\(argsStr))")
+            return self.evalAndExtractStorage("FORJA2.0.\(method)(\(argsStr))")
         }
     }
 
@@ -144,7 +144,7 @@ class LiftosaurEngine {
             guard let context = self.context else { return nil }
             let argsStr = self.prepareArgs(globals: globals, args: args)
             self.logCall(method)
-            return context.eval("Liftosaur.\(method)(\(argsStr))").string
+            return context.eval("FORJA2.0.\(method)(\(argsStr))").string
         }
     }
 

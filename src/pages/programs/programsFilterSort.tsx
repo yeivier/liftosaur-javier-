@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import {
   builtinProgramAges,
   builtinProgramDurations,
@@ -23,7 +24,7 @@ export function ProgramsFilterSort(props: IProps): JSX.Element {
       <span className="inline-block mr-1 align-middle">
         <IconFilter2 size={24} />
       </span>
-      <span> I've been lifting for </span>
+      <span>{Translate_text(" I've been lifting for ")}</span>
       <SelectLink
         name="programs-filter-age"
         className="font-semibold"
@@ -32,7 +33,7 @@ export function ProgramsFilterSort(props: IProps): JSX.Element {
         emptyLabel="any time"
         value={filter.age}
       />
-      <span>. I work out </span>
+      <span>{Translate_text(". I work out ")}</span>
       <SelectLink
         name="programs-filter-frequency"
         className="font-semibold"
@@ -41,7 +42,7 @@ export function ProgramsFilterSort(props: IProps): JSX.Element {
         emptyLabel="any number days a week"
         value={filter.frequency}
       />
-      <span> for </span>
+      <span>{Translate_text(" for ")}</span>
       <SelectLink
         name="programs-filter-duration"
         className="font-semibold"
@@ -50,7 +51,7 @@ export function ProgramsFilterSort(props: IProps): JSX.Element {
         emptyLabel="any time"
         value={filter.duration}
       />
-      <span>. My goal is </span>
+      <span>{Translate_text(". My goal is ")}</span>
       <SelectLink
         name="programs-filter-goal"
         className="font-semibold"
@@ -60,7 +61,7 @@ export function ProgramsFilterSort(props: IProps): JSX.Element {
         value={filter.goal}
       />
       <span>.</span>
-      <span> Sort by: </span>
+      <span>{Translate_text(" Sort by: ")}</span>
       <SelectLink
         name="programs-sort"
         className="font-semibold"

@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { IconHamburger } from "./icons/iconHamburger";
 import { Account } from "./account";
 import { IconUser } from "./icons/iconUser";
@@ -42,11 +43,13 @@ export function TopNavMenu(props: {
                   className="inline align-middle"
                   style={{ width: "2.5rem", height: "2.5rem" }}
                   src="/images/icon.svg"
-                  alt="Liftosaur Logo"
+                  alt="FORJA2.0 Logo"
                 />
               </a>
             </div>
-            <div className={`text-xl font-bold ${props.isWhite ? "text-text-alwayswhite" : ""}`}>Liftosaur</div>
+            <div className={`text-xl font-bold ${props.isWhite ? "text-text-alwayswhite" : ""}`}>
+              {Translate_text("FORJA2.0")}
+            </div>
           </div>
           {props.mobileRight}
           <div className="flex flex-row items-center gap-2">
@@ -72,11 +75,11 @@ export function TopNavMenu(props: {
                         className="inline align-middle"
                         style={{ width: "2.5rem", height: "2.5rem" }}
                         src="/images/icon.svg"
-                        alt="Liftosaur Logo"
+                        alt="FORJA2.0 Logo"
                       />
                     </a>
                   </div>
-                  <div className="text-xl font-bold">Liftosaur</div>
+                  <div className="text-xl font-bold">{Translate_text("FORJA2.0")}</div>
                 </div>
                 <div className="flex items-center">
                   <ThemeToggle />
@@ -101,7 +104,7 @@ export function TopNavMenu(props: {
                       setIsAccountModalOpen(true);
                     }}
                   >
-                    Sign Out
+                    {Translate_text("Sign Out")}
                   </button>
                 ) : (
                   <button
@@ -111,7 +114,7 @@ export function TopNavMenu(props: {
                       setIsAccountModalOpen(true);
                     }}
                   >
-                    Sign In
+                    {Translate_text("Sign In")}
                   </button>
                 )}
               </div>
@@ -121,7 +124,7 @@ export function TopNavMenu(props: {
                   onClick={() => track({ redditname: "Lead", googlename: "outbound_click" })}
                 >
                   <IconApple color={Tailwind_semantic().text.primary} />
-                  <span className="text-base">App Store</span>
+                  <span className="text-base">{Translate_text("App Store")}</span>
                 </Onelink>
                 <Onelink
                   type="android"
@@ -130,7 +133,7 @@ export function TopNavMenu(props: {
                   onClick={() => track({ redditname: "Lead", googlename: "outbound_click" })}
                 >
                   <IconGooglePlay size={20} color={Tailwind_semantic().text.primary} />
-                  <span className="text-base">Google Play</span>
+                  <span className="text-base">{Translate_text("Google Play")}</span>
                 </Onelink>
               </div>
               <div className="pt-6 border-t border-border-neutral">
@@ -207,10 +210,10 @@ function DesktopNav(props: IDesktopNavProps): JSX.Element {
               className="inline align-middle"
               style={{ width: "100%", height: "100%" }}
               src="/images/icon.svg"
-              alt="Liftosaur Logo"
+              alt="FORJA2.0 Logo"
             />
           </div>
-          <span className="text-xl font-bold">Liftosaur</span>
+          <span className="text-xl font-bold">{Translate_text("FORJA2.0")}</span>
         </a>
         <div className="flex items-center gap-4">
           <ul className="flex flex-wrap items-center justify-end leading-none list-none gap-x-4">
@@ -265,7 +268,7 @@ function DesktopNav(props: IDesktopNavProps): JSX.Element {
                 onClick={() => props.onAccountClick()}
                 className={`text-sm font-medium ${props.isWhite ? "text-text-alwayswhite" : "text-text-secondary"} no-underline hover:underline whitespace-nowrap`}
               >
-                Sign In
+                {Translate_text("Sign In")}
               </button>
             )}
             <ThemeToggle isWhite={props.isWhite} />

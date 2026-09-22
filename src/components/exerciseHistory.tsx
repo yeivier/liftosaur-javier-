@@ -275,7 +275,9 @@ const ExerciseHistoryRecord = memo((props: IExerciseHistoryRecordProps): JSX.Ele
             {!!historyRecord.notes && (
               <Text className="text-sm text-text-secondary">
                 <Text className="text-sm font-bold">Workout: </Text>
-                <Text className="text-sm">{historyRecord.notes}</Text>
+                <Text className="text-sm" noTranslate={true}>
+                  {historyRecord.notes}
+                </Text>
               </Text>
             )}
           </View>

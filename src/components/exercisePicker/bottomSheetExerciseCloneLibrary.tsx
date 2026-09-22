@@ -8,6 +8,7 @@ import { IExercise, Exercise_allExpanded, Exercise_toKey } from "../../models/ex
 import { Tailwind_colors, Tailwind_semantic } from "../../utils/tailwindConfig";
 import { IconMagnifyingGlass } from "../icons/iconMagnifyingGlass";
 import { StringUtils_fuzzySearch } from "../../utils/string";
+import { Translate_searchableName } from "../../i18n/searchableName";
 import { ExercisePickerExerciseItem } from "./exercisePickerExerciseItem";
 import { BottomSheetOrModal } from "../bottomSheetOrModal";
 import { SheetDragHandle } from "../../navigation/TransparentModal";
@@ -29,7 +30,7 @@ export function ExerciseCloneLibraryContent(props: IExerciseCloneLibraryContentP
     let result = !trimmedSearch
       ? Exercise_allExpanded(props.settings.exercises)
       : Exercise_allExpanded(props.settings.exercises).filter((e) => {
-          return StringUtils_fuzzySearch(trimmedSearch, e.name.toLowerCase());
+          return StringUtils_fuzzySearch(trimmedSearch, Translate_searchableName(e.name));
         });
     result = result.sort((a, b) => a.name.localeCompare(b.name));
     return result;

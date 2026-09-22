@@ -1,4 +1,5 @@
 import { JSX, useRef, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { View } from "react-native";
 import { GroupHeader } from "./groupHeader";
 import { Input, IInputHandle, IValidationError } from "./input";
@@ -57,7 +58,7 @@ export function TextInputModalContent(props: ITextInputModalContentProps): JSX.E
           className="mr-3"
           onClick={props.onClose}
         >
-          Cancel
+          {Translate_text("Cancel")}
         </Button>
         <Button
           kind="purple"

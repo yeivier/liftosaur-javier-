@@ -1,4 +1,5 @@
 import { JSX, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { View, LayoutChangeEvent } from "react-native";
 import { useRemScale } from "../../utils/useRem";
 import { Pressable } from "../primitives/pressable";
@@ -332,7 +333,7 @@ export const EditProgramNavbar = memo(function EditProgramNavbar(props: IEditPro
               props.dispatch(Thunk_pushScreen("main", undefined, { tab: "home" }));
             }}
           >
-            Save
+            {Translate_text("Save")}
           </Button>
         </View>
       </View>

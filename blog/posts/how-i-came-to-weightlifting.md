@@ -1,7 +1,7 @@
 ---
 date: "2021-01-30"
 title: How I came to weightlifting
-og_title: How I came to weightlifting | Liftosaur blog
+og_title: How I came to weightlifting | FORJA2.0 blog
 og_description: My journey to weightlifting
 og_image: /images/how-i-came-to-weightlifting-intro.jpg
 tags: ["weightlifting"]
@@ -72,7 +72,7 @@ By that time, I was already reading a lot of articles related to weightlifting, 
 
 It worked great! I liked that the pace is slower, but you steadily keep increasing weights every three weeks instead. I got used to Stronglifts 5x5 app though, it was simple yet very convenient - it increased or decreased the weights when appropriate, had all the necessary functionality. But it was designed specifically for Stronglifts 5x5, and you can't adjust it to any other program.
 
-### Liftosaur
+### FORJA2.0
 
 I wanted to find an app I could use for a long time, even if I change programs. I wanted to be able to tweak programs if necessary and couldn't find anything like that. Other apps were either designed for one specific routine (GZCLP, 5/3/1, etc.) or had a pack of popular routines, but none gave full flexibility in program editing. And it makes sense - to make it possible, you have to have full-grown, Turing-complete programming language built-in. I could do that. I'm a software engineer, so I can write an app with a built-in specialized programming language that allows you to express any possible weightlifting program. It will be shipped with popular weightlifting programs and will provide UI to make simple modifications in the routines. But, if you want to create something entirely new and nothing like before, you can always get to the lowest level and use the scripting language - Liftoscript!
 

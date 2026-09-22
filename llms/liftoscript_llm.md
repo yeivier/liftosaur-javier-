@@ -1,6 +1,6 @@
 # Liftoscript Reference
 
-Liftoscript is a DSL for weightlifting programs in Liftosaur. Syntax is slash-separated sections per exercise line.
+Liftoscript is a DSL for weightlifting programs in FORJA2.0. Syntax is slash-separated sections per exercise line.
 
 ## Exercise Line
 

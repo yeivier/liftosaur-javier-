@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 
 export interface IAffiliateDashboardSummary {
   totalUsers: number;
@@ -45,20 +46,24 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
   return (
     <section className="py-8">
       <h1 className="mb-8 text-3xl font-bold">
-        Affiliate Dashboard: <span className="text-blue-600">{props.affiliateId}</span>
+        {Translate_text("Affiliate Dashboard: ")}
+        <span className="text-blue-600">{props.affiliateId}</span>
       </h1>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 gap-4 mb-8 md:grid-cols-4">
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <div className="mb-1 text-sm text-gray-600">Total Users</div>
+          <div className="mb-1 text-sm text-gray-600">{Translate_text("Total Users")}</div>
           <div className="text-2xl font-bold">{props.summary.totalUsers}</div>
           <div className="text-xs text-gray-500 mt-1">
-            Programs: {props.summary.programUsers} / Coupons: {props.summary.couponUsers}
+            {Translate_text("Programs: ")}
+            {props.summary.programUsers}
+            {Translate_text(" / Coupons: ")}
+            {props.summary.couponUsers}
           </div>
         </div>
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <div className="mb-1 text-sm text-gray-600">Paid Users</div>
+          <div className="mb-1 text-sm text-gray-600">{Translate_text("Paid Users")}</div>
           <div className="text-2xl font-bold text-green-600">{props.summary.paidUsers}</div>
           <div className="text-xs text-gray-500">
             {props.summary.totalUsers > 0
@@ -67,15 +72,16 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
           </div>
         </div>
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <div className="mb-1 text-sm text-gray-600">Monthly Revenue (20%)</div>
+          <div className="mb-1 text-sm text-gray-600">{Translate_text("Monthly Revenue (20%)")}</div>
           <div className="text-2xl font-bold text-blue-600">{formatCurrency(props.summary.monthlyRevenue)}</div>
         </div>
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <div className="mb-1 text-sm text-gray-600">Total Revenue (20%)</div>
+          <div className="mb-1 text-sm text-gray-600">{Translate_text("Total Revenue (20%)")}</div>
           <div className="text-2xl font-bold text-purple-600">{formatCurrency(props.summary.totalRevenue)}</div>
           <div className="text-xs text-gray-500 mt-1">
-            Programs: {formatCurrency(props.summary.programRevenue)} / Coupons:{" "}
-            {formatCurrency(props.summary.couponRevenue)}
+            {Translate_text("Programs: ")}
+            {formatCurrency(props.summary.programRevenue)}
+            {Translate_text(" / Coupons:")} {formatCurrency(props.summary.couponRevenue)}
           </div>
         </div>
       </div>
@@ -83,20 +89,20 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
       {/* Payments by Month */}
       <div className="mb-8 overflow-hidden bg-white rounded-lg shadow">
         <div className="px-4 py-4 border-b border-gray-200">
-          <h2 className="text-xl font-semibold">Payments by Month</h2>
+          <h2 className="text-xl font-semibold">{Translate_text("Payments by Month")}</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="border-b border-gray-200 bg-gray-50">
               <tr>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Month
+                  {Translate_text("Month")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Number of Payments
+                  {Translate_text("Number of Payments")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Revenue (20% share)
+                  {Translate_text("Revenue (20% share)")}
                 </th>
               </tr>
             </thead>
@@ -104,7 +110,7 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
               {props.monthlyPayments.length === 0 ? (
                 <tr>
                   <td colSpan={3} className="px-4 py-4 text-center text-gray-500">
-                    No payments yet
+                    {Translate_text("No payments yet")}
                   </td>
                 </tr>
               ) : (
@@ -136,50 +142,52 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
       {/* Users Table */}
       <div className="overflow-hidden bg-white rounded-lg shadow">
         <div className="px-4 py-4 border-b border-gray-200">
-          <h2 className="text-xl font-semibold">Affiliated Users</h2>
+          <h2 className="text-xl font-semibold">{Translate_text("Affiliated Users")}</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="border-b border-gray-200 bg-gray-50">
               <tr>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  User ID
+                  {Translate_text("User ID")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Signed?
+                  {Translate_text("Signed?")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Import Date
+                  {Translate_text("Import Date")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Status
+                  {Translate_text("Status")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Workouts
+                  {Translate_text("Workouts")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Days Active
+                  {Translate_text("Days Active")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Payments
+                  {Translate_text("Payments")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Monthly Rev
+                  {Translate_text("Monthly Rev")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  Total Rev
+                  {Translate_text("Total Rev")}
                 </th>
                 <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                  First Affiliate
+                  {Translate_text("First Affiliate")}
                 </th>
-                <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Type</th>
+                <th className="px-4 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                  {Translate_text("Type")}
+                </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {props.affiliateData.length === 0 ? (
                 <tr>
                   <td colSpan={11} className="px-4 py-4 text-center text-gray-500">
-                    No affiliated users yet
+                    {Translate_text("No affiliated users yet")}
                   </td>
                 </tr>
               ) : (
@@ -197,9 +205,9 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
                         {item.isSignedUp ? (
-                          <span className="font-medium text-green-600">Yes</span>
+                          <span className="font-medium text-green-600">{Translate_text("Yes")}</span>
                         ) : (
-                          <span className="font-medium text-red-600">No</span>
+                          <span className="font-medium text-red-600">{Translate_text("No")}</span>
                         )}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-500 whitespace-nowrap">
@@ -264,12 +272,18 @@ export function AffiliateDashboardContent(props: IAffiliateDashboardContentProps
 
       {/* Info Box */}
       <div className="p-4 mt-8 border border-blue-200 rounded-lg bg-blue-50">
-        <h3 className="mb-2 text-sm font-semibold text-blue-900">How the Affiliate Program Works:</h3>
+        <h3 className="mb-2 text-sm font-semibold text-blue-900">
+          {Translate_text("How the Affiliate Program Works:")}
+        </h3>
         <ul className="space-y-1 text-sm text-blue-800">
-          <li>• You earn 20% of all revenue from users who import your programs</li>
-          <li>• Revenue is counted only from payments made AFTER the user imported your program</li>
-          <li>• If a user imported multiple programs, only the first program creator gets the commission</li>
-          <li>• Commissions apply to both one-time purchases and subscription renewals</li>
+          <li>{Translate_text("• You earn 20% of all revenue from users who import your programs")}</li>
+          <li>{Translate_text("• Revenue is counted only from payments made AFTER the user imported your program")}</li>
+          <li>
+            {Translate_text(
+              "• If a user imported multiple programs, only the first program creator gets the commission"
+            )}
+          </li>
+          <li>{Translate_text("• Commissions apply to both one-time purchases and subscription renewals")}</li>
         </ul>
       </div>
     </section>

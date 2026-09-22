@@ -21,8 +21,8 @@ export function PlannerHtml(props: IProps): JSX.Element {
   const programName = data.initialProgram?.program?.name;
   const title =
     programName != null
-      ? `${HtmlUtils_escapeHtml(programName)} | Workout Editor | Liftosaur`
-      : "Weightlifting Workout Planner | Liftosaur";
+      ? `${HtmlUtils_escapeHtml(programName)} | Workout Editor | FORJA2.0`
+      : "Weightlifting Workout Planner | FORJA2.0";
 
   return (
     <Page

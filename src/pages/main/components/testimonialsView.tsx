@@ -1,4 +1,5 @@
 import { JSX, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { ITestimonial } from "../testimonitals";
 import { IconStar } from "../../../components/icons/iconStar";
 import { IconHeart } from "../../../components/icons/iconHeart";
@@ -141,9 +142,9 @@ export function TestimonialsView(props: { testimonials: ITestimonial[] }): JSX.E
   return (
     <div className="relative py-12 mx-0 md:mx-auto md:py-20" style={{ maxWidth: 1000 }}>
       <div className="flex items-center justify-center gap-3 px-4 mb-4">
-        <h2 className="text-3xl font-bold md:text-4xl">Athletes</h2>
+        <h2 className="text-3xl font-bold md:text-4xl">{Translate_text("Athletes")}</h2>
         <IconHeart size={32} color={Tailwind_semantic().icon.red} />
-        <h2 className="text-3xl font-bold md:text-4xl">Liftosaur</h2>
+        <h2 className="text-3xl font-bold md:text-4xl">{Translate_text("FORJA2.0")}</h2>
       </div>
       <div className="flex justify-center gap-2 px-4 mb-8">
         <button
@@ -154,7 +155,7 @@ export function TestimonialsView(props: { testimonials: ITestimonial[] }): JSX.E
           }}
           onClick={() => handleTabChange("stores")}
         >
-          App Stores
+          {Translate_text("App Stores")}
         </button>
         <button
           className="px-4 py-2 text-sm font-semibold transition-colors rounded-full cursor-pointer hover:bg-background-subtlecardpurple active:bg-color-purple200"
@@ -164,7 +165,7 @@ export function TestimonialsView(props: { testimonials: ITestimonial[] }): JSX.E
           }}
           onClick={() => handleTabChange("reddit")}
         >
-          Reddit
+          {Translate_text("Reddit")}
         </button>
       </div>
       <div className="hidden md:block">
@@ -270,7 +271,8 @@ export function TestimonialsView(props: { testimonials: ITestimonial[] }): JSX.E
                           className="underline"
                           style={{ color: Tailwind_semantic().text.link }}
                         >
-                          {t.author} on Reddit
+                          {t.author}
+                          {Translate_text(" on Reddit")}
                         </a>
                       ) : (
                         <a
@@ -279,7 +281,9 @@ export function TestimonialsView(props: { testimonials: ITestimonial[] }): JSX.E
                           className="underline"
                           style={{ color: Tailwind_semantic().text.link }}
                         >
-                          {t.author} on {sourceLabel(t.source)}
+                          {t.author}
+                          {Translate_text(" on ")}
+                          {sourceLabel(t.source)}
                         </a>
                       )}
                     </div>

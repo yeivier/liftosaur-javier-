@@ -3,7 +3,7 @@
 
 export const content = `# Liftoscript
 
-Liftoscript is a domain-specific language for writing weightlifting programs in Liftosaur app. It allows users to define their workout routines in a text format, specifying exercises, sets, reps, weights, RPE, timers and progressions. The syntax is designed to be simple and efficient.
+Liftoscript is a domain-specific language for writing weightlifting programs in FORJA2.0 app. It allows users to define their workout routines in a text format, specifying exercises, sets, reps, weights, RPE, timers and progressions. The syntax is designed to be simple and efficient.
 
 For managing large multi-week programs, Liftoscript offers powerful ways to repeat exercises across multiple weeks, reuse exercises, override some reused parts, reuse \`progress\` and \`update\` blocks, etc.
 
@@ -273,7 +273,7 @@ Squat / 5x5 / warmup: none
 
 ### Progressive overload
 
-It's very important to incorporate progressive overload into your workouts - how you will increase sets, reps, weight, etc over time, to give stimulus for your muscles to grow. In Liftosaur, you can specify progressions for your exercises, and the app will automatically change weights/reps/etc based on the conditions you specify.
+It's very important to incorporate progressive overload into your workouts - how you will increase sets, reps, weight, etc over time, to give stimulus for your muscles to grow. In FORJA2.0, you can specify progressions for your exercises, and the app will automatically change weights/reps/etc based on the conditions you specify.
 
 There're 3 built-in types of progressive overload:
 
@@ -403,7 +403,7 @@ Weightlifting programs are often very repetitive - you usually have multiple exe
 using the same waving progressions over weeks. It's important to have ways to not repeat yourself, so it'd be easier to modify the programs, add exercises, change the set schemes, progressions, etc. E.g. a 12-week program with 4-days per week
 and 5 exercises in each day in total may have 240 places where you specify the sets! And modifying such program would be a very tedious task.
 
-Liftosaur offers a bunch of syntax sugar to make it easier to write and modify the programs.
+FORJA2.0 offers a bunch of syntax sugar to make it easier to write and modify the programs.
 
 #### Reusing the exercises's sets/reps/weight/RPE/timer, warmups and update/progress scripts via \`...Squat\`
 
@@ -668,7 +668,7 @@ t2 / 1x11, 3x6 / 70%
 
 What's described above is probably enough to cover 95% of the use-cases. But in case you want some custom progressions, you can do it with a special \`progress: custom()\` Liftoscript syntax.
 
-There, you can unleash the full power of the scripting in Liftosaur. You can directy change weights, reps, sets, timers, RPE, etc using \`if/else\`s, state variables, math and boolean logic.
+There, you can unleash the full power of the scripting in FORJA2.0. You can directy change weights, reps, sets, timers, RPE, etc using \`if/else\`s, state variables, math and boolean logic.
 
 E.g. this is how a variant of Linear Progression - increasing weight by 5lb if first set was successful - would look like:
 
@@ -1007,7 +1007,7 @@ You can specify both \`update: custom()\` and any \`progress: \` within the same
 
 ### Bodyweight and Assisted Exercises
 
-For exercises like Pull Ups, Dips, etc., you may want to include your bodyweight into the total weight for tracking and volume calculations. Liftosaur supports this through equipment settings and the \`bodyweight\` variable in scripts.
+For exercises like Pull Ups, Dips, etc., you may want to include your bodyweight into the total weight for tracking and volume calculations. FORJA2.0 supports this through equipment settings and the \`bodyweight\` variable in scripts.
 
 In **Equipment Settings** (Me -> Equipment), you can enable two options for any equipment type:
 
@@ -1079,7 +1079,7 @@ You can also target specific weeks/days/setvariations if you want to. E.g. if yo
 
 ### Set Variations
 
-Sometimes you may want to have multiple sets x reps schemes within the same exercise, and switch between them on some condition. For example, in a popular weightlifting program called "GZCLP", you do \`5x3\` sets, but if you fail, you switch to \`6x2\` sets, and then - to \`10x1\` sets. To program that in Liftosaur, there's a concept of "set variations" - so that you can specify several set schemes and switch between them. Example above may look like this:
+Sometimes you may want to have multiple sets x reps schemes within the same exercise, and switch between them on some condition. For example, in a popular weightlifting program called "GZCLP", you do \`5x3\` sets, but if you fail, you switch to \`6x2\` sets, and then - to \`10x1\` sets. To program that in FORJA2.0, there's a concept of "set variations" - so that you can specify several set schemes and switch between them. Example above may look like this:
 
 \`\`\`
 Squat / 5x3 / 6x2 / 10x1 / progress: custom() {~

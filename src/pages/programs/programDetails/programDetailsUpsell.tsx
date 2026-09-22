@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { track } from "../../../utils/posthog";
 import { Platform_isiOS, Platform_isAndroid, Platform_onelink } from "../../../utils/platform";
 import { Onelink } from "../../../components/onelink";
@@ -19,15 +20,20 @@ export function ProgramDetailsUpsell(props: IProgramDetailsUpsellProps): JSX.Ele
       style={{ maxWidth: props.maxWidth }}
     >
       <div className="flex-1">
-        You can use this program on <strong>Liftosaur</strong> - a weightlifting tracker app!
+        {Translate_text("You can use this program on ")}
+        <strong>{Translate_text("FORJA2.0")}</strong>
+        {Translate_text(" - a weightlifting tracker app!")}
         <ul className="pl-4 mt-2 list-disc">
-          <li>Log your workouts there, and have a history of all your workouts on your phone</li>
+          <li>{Translate_text("Log your workouts there, and have a history of all your workouts on your phone")}</li>
           <li>
-            It will automatically update weights, reps and sets for you from workout to workout - according to the
-            program logic
+            {Translate_text(
+              "It will automatically update weights, reps and sets for you from workout to workout - according to the program logic"
+            )}
           </li>
           <li>
-            And you can customize the programs in any way, change exercises, the exercise logic, sets/reps/weights, etc.
+            {Translate_text(
+              "And you can customize the programs in any way, change exercises, the exercise logic, sets/reps/weights, etc."
+            )}
           </li>
         </ul>
       </div>

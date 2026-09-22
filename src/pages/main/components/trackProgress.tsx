@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { IconFire } from "../../../components/icons/iconFire";
 import { IconGraphs } from "../../../components/icons/iconGraphs";
 import { IconBarbell } from "../../../components/icons/iconBarbell";
@@ -70,16 +71,17 @@ export function TrackProgress(): JSX.Element {
           <div>
             <IconTracker color={Tailwind_semantic().icon.red} />
           </div>
-          <div className="font-semibold">Powerful Tracker</div>
+          <div className="font-semibold">{Translate_text("Powerful Tracker")}</div>
         </div>
       </div>
-      <h2 className="px-4 mb-4 text-3xl font-bold text-center md:text-4xl">Track your progress</h2>
+      <h2 className="px-4 mb-4 text-3xl font-bold text-center md:text-4xl">{Translate_text("Track your progress")}</h2>
       <p
         className="px-4 mx-auto mb-10 text-base leading-relaxed text-center text-text-secondary"
         style={{ maxWidth: "40rem" }}
       >
-        Log every set and rep, monitor body stats, and visualize your progress with detailed graphs. All your data is
-        securely stored in the cloud for access anywhere.
+        {Translate_text(
+          "Log every set and rep, monitor body stats, and visualize your progress with detailed graphs. All your data is securely stored in the cloud for access anywhere."
+        )}
       </p>
       <div className="flex gap-8">
         <div className="flex-1">

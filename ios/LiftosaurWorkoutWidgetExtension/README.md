@@ -1,4 +1,4 @@
-# Liftosaur Workout Widget Extension — Xcode setup
+# FORJA2.0 Workout Widget Extension — Xcode setup
 
 This folder holds the source for the **Live Activity / Widget** target. The Swift files,
 Info.plist, entitlements, and asset catalog are checked in, but the Xcode target
@@ -11,25 +11,25 @@ itself must be created manually before the project can build.
 3. Settings:
    - Product Name: `LiftosaurWorkoutWidgetExtension`
    - Bundle Identifier: `<your_app_bundle_id>.LiftosaurWorkoutWidgetExtension`
-   - Team: same as `Liftosaur`
+   - Team: same as `FORJA2.0`
    - Language: Swift
    - **Include Live Activity**: ✅ on
    - Configuration Intent: ❌ off (we use custom AppIntents)
-   - Embed in Application: `Liftosaur`
+   - Embed in Application: `FORJA2.0`
 4. When Xcode finishes generating, **delete the auto-generated `LiftosaurWorkoutWidgetExtension`
    group** from the Project Navigator (move all generated `.swift`/`.plist`/`.entitlements`
    files to Trash). Keep the target itself.
 
 ## 2. Add this folder to the new target
 
-1. Right-click the project, **Add Files to "Liftosaur"…**
+1. Right-click the project, **Add Files to "FORJA2.0"…**
 2. Select the entire `ios/LiftosaurWorkoutWidget` folder. Options:
    - Copy items if needed: ❌ off (folder is already in the right place)
    - Create groups
    - Add to targets: **only** `LiftosaurWorkoutWidgetExtension`
 3. After adding, verify file membership in the File Inspector — every `*.swift`,
    `Info.plist`, the `.entitlements`, and `Assets.xcassets` should be on
-   `LiftosaurWorkoutWidgetExtension` (not on `Liftosaur`).
+   `LiftosaurWorkoutWidgetExtension` (not on `FORJA2.0`).
 
 ## 3. Share `WorkoutAttributes.swift` between targets
 
@@ -38,7 +38,7 @@ Both the main app and the widget extension must compile it.
 
 1. Click `ios/Liftosaur/WorkoutAttributes.swift` in the navigator.
 2. In the File Inspector → Target Membership, check **both**:
-   - `Liftosaur`
+   - `FORJA2.0`
    - `LiftosaurWorkoutWidgetExtension`
 
 ## 4. Build Settings on `LiftosaurWorkoutWidgetExtension`
@@ -52,7 +52,7 @@ Both the main app and the widget extension must compile it.
 
 ## 5. Signing & Capabilities (both targets)
 
-On **Liftosaur** and **LiftosaurWorkoutWidgetExtension**:
+On **FORJA2.0** and **LiftosaurWorkoutWidgetExtension**:
 - Signing & Capabilities → **+ Capability** → **App Groups**
 - Add `group.com.liftosaur.workout`
 
@@ -63,9 +63,9 @@ find the group on your developer account, create it at
 
 ## 6. Verify the Embed Foundation Extensions phase
 
-The `Liftosaur` target should have a build phase **"Embed Foundation Extensions"**
+The `FORJA2.0` target should have a build phase **"Embed Foundation Extensions"**
 that copies `LiftosaurWorkoutWidgetExtension.appex`. Xcode adds this automatically
-when you check "Embed in Application: Liftosaur" in step 1; double-check it exists.
+when you check "Embed in Application: FORJA2.0" in step 1; double-check it exists.
 
 ## 7. Refresh CocoaPods
 
@@ -77,7 +77,7 @@ cd ios && pod install
 
 ```bash
 xcodebuild -workspace ios/Liftosaur.xcworkspace \
-  -scheme Liftosaur \
+  -scheme FORJA2.0 \
   -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
   build
 ```

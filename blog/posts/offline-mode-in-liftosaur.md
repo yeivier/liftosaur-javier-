@@ -1,8 +1,8 @@
 ---
 date: "2021-03-04"
-title: Offline mode in Liftosaur
-og_title: Offline mode in Liftosaur | Liftosaur blog
-og_description: "How I built offline mode in Liftosaur"
+title: Offline mode in FORJA2.0
+og_title: Offline mode in FORJA2.0 | FORJA2.0 blog
+og_description: "How I built offline mode in FORJA2.0"
 og_image: /images/offline-mode-in-liftosaur-no-internet.png
 tags: ["tech"]
 twitter: https://twitter.com/liftosaur/status/1367685947446489091
@@ -13,7 +13,7 @@ reddit: https://www.reddit.com/r/liftosaur/comments/ly3ffc/offline_mode_in_lifto
 
 One of the most significant benefits of PWA apps is enabling offline mode for your apps. You can set up caching in a service worker, and then if there's no Internet, the service worker returns the bundles and maybe even API responses from the cache. There're tons of tutorials on how to set it up, but caching is just the tip of an iceberg. You have to structure your whole app around offline mode if you really want to get a seamless experience without the Internet. That's hard.
 
-Here I'd like to share how I did offline mode for Liftosaur. It's not perfect, and it still has its flaws. But it mostly works fine, only occasionally maybe possibly breaking user experience.
+Here I'd like to share how I did offline mode for FORJA2.0. It's not perfect, and it still has its flaws. But it mostly works fine, only occasionally maybe possibly breaking user experience.
 
 ## What do we need to do to make it work offline
 
@@ -28,7 +28,7 @@ That's about it. But there're caveats.
 
 We can use a service worker for caching bundles, intercept all the network calls from there, and cache the bundles and maybe the API calls we care about. There're a million tutorials on the Internet on how to do that. It's probably the most popular usage of service workers.
 
-For initial load, Liftosaur loads its bundles from the Internet and caches them. They are:
+For initial load, FORJA2.0 loads its bundles from the Internet and caches them. They are:
 
 - **index.html** - the main page, where we render our whole app.
 - **main.js/css** - the main bundle with all the logic included and styles for it.
@@ -45,7 +45,7 @@ It's a good idea to versionize your bundles, so you could cache them forever, an
 
 If we store our bundles on Amazon S3, it ignores the querystring params when returning the stored objects, so `?version=123` is ignored. But it's not ignored by CDN, browser cache, and the service worker cache. When we bump the version to `124`, it misses the cache both on CDN, browser, and the service worker and returns the actual version of the bundle.
 
-For a version value we simply use a Git commit hash. In Liftosaur we do that via Webpack's `DefinePlugin`:
+For a version value we simply use a Git commit hash. In FORJA2.0 we do that via Webpack's `DefinePlugin`:
 
 ```js
 // webpack.config.js
@@ -270,7 +270,7 @@ For now, if some user has issues with the migrations, I just try to fix it asap 
 
 ### Implementation details
 
-So, this is how it looks like in code. Liftosaur has a global state in memory, and the part of the state we want to store locally and in the cloud lives in the `state.storage` field.
+So, this is how it looks like in code. FORJA2.0 has a global state in memory, and the part of the state we want to store locally and in the cloud lives in the `state.storage` field.
 
 There's the `state.storage.version` field, that stores the current version of the state. For simplicity, for a version, we use the current datetime in `yyyymmddhhmmss` format, like `20200929231430`.
 
@@ -330,7 +330,7 @@ For example, it makes sense to combine workouts made both on the cloud and local
 
 Ideally, it could be solved with special data structures called CRDT, where log changes separately on cloud and locally, and then replay them for merging. But that would complicate things significantly.
 
-We're assuming that most of the time, users will use Liftosaur locally while offline, so usually, the local state is newer and more actual than the cloud state. With this assumption, we can combine workouts and some other parts, and for other stuff prefer local state as a source of truth.
+We're assuming that most of the time, users will use FORJA2.0 locally while offline, so usually, the local state is newer and more actual than the cloud state. With this assumption, we can combine workouts and some other parts, and for other stuff prefer local state as a source of truth.
 
 So, like this:
 
@@ -360,4 +360,4 @@ And from now on, we keep syncing the state into `IndexedDB` and cloud on each `s
 
 ## Conclusion
 
-That's about it! Implementing offline mode made me scratch my head a bit while doing all those migrations and configuring service workers. But once all the groundwork is done, I don't really have to think about it anymore while adding new features to Liftosaur. I just add new migrations from time to time and update the merging function.
+That's about it! Implementing offline mode made me scratch my head a bit while doing all those migrations and configuring service workers. But once all the groundwork is done, I don't really have to think about it anymore while adding new features to FORJA2.0. I just add new migrations from time to time and update the merging function.

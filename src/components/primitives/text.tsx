@@ -1,5 +1,6 @@
 import { Text as RNText, TextProps, Platform } from "react-native";
 import { JSX } from "react";
+import { Translate_children } from "../../i18n/translateChildren";
 
 const textColorPattern =
   /\btext-(icon|text|syntax|red|green|blue|yellow|purple|gray|slate|zinc|stone|neutral|orange|amber|lime|emerald|teal|cyan|sky|indigo|violet|fuchsia|pink|rose|white|black|transparent|inherit|current)\b/;
@@ -40,8 +41,12 @@ function resolveFontFamily(className: string | undefined): string {
 
 // RN's <Text> with none of the defaults Text injects below - for nested spans, which would
 // otherwise get text-base forced on them, and for trees that resolve their own font family.
-export function TextRaw(props: TextProps & { className?: string }): JSX.Element {
-  return <RNText allowFontScaling={false} {...props} />;
+export function TextRaw({
+  noTranslate,
+  ...props
+}: TextProps & { className?: string; noTranslate?: boolean }): JSX.Element {
+  const children = noTranslate ? props.children : Translate_children(props.children);
+  return <RNText allowFontScaling={false} {...props} children={children} />;
 }
 
 // The OS font scale is folded into the rem instead (see Settings_getTextSize), which moves
@@ -50,8 +55,9 @@ export function TextRaw(props: TextProps & { className?: string }): JSX.Element 
 export function Text({
   style,
   className,
+  noTranslate,
   ...props
-}: TextProps & { className?: string; "data-testid"?: string }): JSX.Element {
+}: TextProps & { className?: string; "data-testid"?: string; noTranslate?: boolean }): JSX.Element {
   const defaults: string[] = [];
   if (className == null || !textColorPattern.test(className)) {
     defaults.push("text-text-primary");
@@ -64,12 +70,14 @@ export function Text({
   const fontFamily = resolveFontFamily(effectiveClassName);
   const dataTestid = (props as { "data-testid"?: string })["data-testid"];
   const testID = props.testID || dataTestid;
+  const children = noTranslate ? props.children : Translate_children(props.children);
   return (
     <RNText
       className={effectiveClassName}
       style={[{ fontFamily }, style]}
       allowFontScaling={false}
       {...props}
+      children={children}
       testID={testID}
     />
   );

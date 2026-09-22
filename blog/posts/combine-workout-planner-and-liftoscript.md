@@ -1,8 +1,8 @@
 ---
 date: "2024-01-04"
 title: Combine Workout Planner and Liftoscript
-og_title: Combine Workout Planner and Liftoscript | Liftosaur blog
-og_description: Integrating Liftoscript into Workout Planner syntax to make the planner as powerful as a regular Liftosaur editor
+og_title: Combine Workout Planner and Liftoscript | FORJA2.0 blog
+og_description: Integrating Liftoscript into Workout Planner syntax to make the planner as powerful as a regular FORJA2.0 editor
 og_image: /images/combine-workout-planner-and-liftoscript-intro.jpg
 tags: ["weightlifting", "tech"]
 reddit: https://www.reddit.com/r/liftosaur/comments/18zc357/blogpost_combine_workout_planner_and_liftoscript/
@@ -171,7 +171,7 @@ Note that reusing exercises can define their values for the state variables via 
 
 And that's it! That pretty much would be the whole GZCLP program, with all the autoincrements, changing stages on failures, and all the proper logic for T1s, T2s and T3s.
 
-All that stuff makes the Workout Planner pretty much as powerful as the regular Liftosaur's program editor. And a big advantage is that you don't really need to know/use all of that, you still can do simple programs like:
+All that stuff makes the Workout Planner pretty much as powerful as the regular FORJA2.0's program editor. And a big advantage is that you don't really need to know/use all of that, you still can do simple programs like:
 
 {% plannercode %}
 Squat / 5x5

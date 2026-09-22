@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { IEventPayload } from "../../api/service";
 import { CollectionUtils_groupByExpr, CollectionUtils_sort, CollectionUtils_sortBy } from "../../utils/collection";
 import { DateUtils_formatYYYYMMDD, DateUtils_formatHHMMSS } from "../../utils/date";
@@ -71,14 +72,17 @@ export function UserDashboardContent(props: IUserDashboardContentProps): JSX.Ele
           )}
         </h1>
         <h2 className="text-base text-text-secondary">
-          id: <strong>{userId}</strong>
+          {Translate_text("id: ")}
+          <strong>{userId}</strong>
         </h2>
         {userDao && (
           <div className="text-base">
-            Workouts: <strong>{userDao.workoutsCount}</strong>
+            {Translate_text("Workouts: ")}
+            <strong>{userDao.workoutsCount}</strong>
             {userDao.firstWorkoutDate && (
               <span>
-                , First workout: <strong>{userDao.firstWorkoutDate}</strong>
+                {Translate_text(", First workout: ")}
+                <strong>{userDao.firstWorkoutDate}</strong>
               </span>
             )}
           </div>
@@ -87,7 +91,7 @@ export function UserDashboardContent(props: IUserDashboardContentProps): JSX.Ele
 
       {userDao && (
         <div className="mb-4">
-          <h2 className="mb-1 text-2xl font-bold">Programs</h2>
+          <h2 className="mb-1 text-2xl font-bold">{Translate_text("Programs")}</h2>
           <ul>
             {userDao.programNames.map((program) => (
               <li key={program}>
@@ -98,7 +102,7 @@ export function UserDashboardContent(props: IUserDashboardContentProps): JSX.Ele
         </div>
       )}
 
-      <h2 className="mb-2 text-2xl font-bold">Events</h2>
+      <h2 className="mb-2 text-2xl font-bold">{Translate_text("Events")}</h2>
 
       {CollectionUtils_sort(ObjectUtils_keys(groupedEvents))
         .reverse()
@@ -183,7 +187,7 @@ function EventView(props: IEventViewProps): JSX.Element | null {
               target="_blank"
               className="font-bold underline text-text-link"
             >
-              RB
+              {Translate_text("RB")}
             </a>
           )}{" "}
           <span className="text-red-500">{event.message}</span>
@@ -210,7 +214,8 @@ function EventView(props: IEventViewProps): JSX.Element | null {
           {event.storage_id}
         </a>
         <span className="ml-2">
-          update: <pre>{event.update}</pre>
+          {Translate_text("update: ")}
+          <pre>{event.update}</pre>
         </span>
       </div>
     );

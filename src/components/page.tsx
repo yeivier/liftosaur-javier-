@@ -2,6 +2,7 @@ import React, { JSX } from "react";
 import { IPageWrapperProps, PageWrapper } from "./pageWrapper";
 import { Tailwind_markPageContext, TAILWIND_PAGE_MARKER_CLASS } from "../utils/tailwindConfig";
 import { PAGE_THEME_STORAGE_KEY, PageTheme_backgroundColor } from "../utils/pageTheme";
+import { Translate_locale, Translate_maybe, Translate_text } from "../i18n/translate";
 
 Tailwind_markPageContext();
 
@@ -98,7 +99,7 @@ function jsonLdToSchema(ld: IJsonLd): object {
         headline: ld.headline,
         ...(ld.description ? { description: ld.description } : {}),
         ...(ld.author ? { author: { "@type": "Person", name: ld.author } } : {}),
-        publisher: { "@type": "Organization", name: "Liftosaur", url: "https://www.liftosaur.com" },
+        publisher: { "@type": "Organization", name: "FORJA2.0", url: "https://www.liftosaur.com" },
         ...(ld.image ? { image: ld.image } : {}),
         ...(ld.mainEntityOfPage ? { mainEntityOfPage: ld.mainEntityOfPage } : {}),
         ...(ld.datePublished ? { datePublished: ld.datePublished } : {}),
@@ -211,9 +212,9 @@ export function Page<T>(props: IProps<T>): JSX.Element {
     client: props.client,
   };
   return (
-    <html lang="en" className={TAILWIND_PAGE_MARKER_CLASS}>
+    <html lang={Translate_locale()} className={TAILWIND_PAGE_MARKER_CLASS}>
       <head>
-        <title>{props.title}</title>
+        <title>{Translate_text(props.title)}</title>
         {props.css.map((c) => (
           <link key={c} rel="stylesheet" type="text/css" href={`/${c}.css?version=${commitHash}`} />
         ))}
@@ -224,7 +225,7 @@ export function Page<T>(props: IProps<T>): JSX.Element {
         <link rel="canonical" href={props.canonical} />
         <link rel="apple-touch-icon" href="/icons/icon512.png" />
         <meta name="theme-color" content={PageTheme_backgroundColor("light")} />
-        <meta name="description" content={props.description} />
+        <meta name="description" content={Translate_maybe(props.description)} />
         <script
           async
           type="text/javascript"
@@ -249,8 +250,8 @@ export function Page<T>(props: IProps<T>): JSX.Element {
           gtag("config", "G-98XGEN6RQK", { 'anonymize_ip': true });`,
           }}
         />
-        <meta property="og:title" content={props.ogTitle || props.title} />
-        <meta property="og:description" content={props.ogDescription || props.description} />
+        <meta property="og:title" content={Translate_text(props.ogTitle || props.title)} />
+        <meta property="og:description" content={Translate_maybe(props.ogDescription || props.description)} />
         <meta property="fb:app_id" content="3448767138535273" />
         {props.ogUrl && <meta property="og:url" content={props.ogUrl} />}
         <meta property="og:type" content="website" />

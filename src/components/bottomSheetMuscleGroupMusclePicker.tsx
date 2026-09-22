@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../i18n/translate";
 import { ISettings, IMuscle, IScreenMuscle } from "../types";
 import { Button } from "./button";
 import { ExercisePickerOptionsMuscles } from "./exercisePicker/exercisePickerOptionsMuscles";
@@ -17,7 +18,7 @@ export function BottomSheetMuscleGroupMusclePicker(props: IExercisePickerCustomE
   return (
     <BottomSheetOrModal shouldShowClose={true} onClose={props.onClose} isHidden={false} zIndex={60}>
       <div className="flex flex-col h-full px-gutter py-2" style={{ marginTop: "-0.5rem" }}>
-        <h3 className="pt-2 pb-3 text-base font-semibold text-center">Choose Muscles</h3>
+        <h3 className="pt-2 pb-3 text-base font-semibold text-center">{Translate_text("Choose Muscles")}</h3>
         <div className="flex-1 overflow-y-auto">
           <div className="pb-4">
             <ExercisePickerOptionsMuscles
@@ -38,7 +39,7 @@ export function BottomSheetMuscleGroupMusclePicker(props: IExercisePickerCustomE
             buttonSize="md"
             onClick={props.onClose}
           >
-            Done
+            {Translate_text("Done")}
           </Button>
         </div>
       </div>

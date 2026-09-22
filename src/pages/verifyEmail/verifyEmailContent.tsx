@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Service } from "../../api/service";
 import { Button } from "../../components/button";
 import { IconSpinner } from "../../components/icons/iconSpinner";
@@ -37,18 +38,18 @@ export function VerifyEmailContent(props: IVerifyEmailContentProps): JSX.Element
         <TopNavMenu client={props.client} isLoggedIn={false} maxWidth={1200} />
         <div className="py-8 mx-auto" style={{ maxWidth: "24rem" }}>
           <div className="w-full mx-auto" style={{ minWidth: 256, maxWidth: 416 }}>
-            <div className="mb-4 text-lg font-bold text-center">Verify your email</div>
+            <div className="mb-4 text-lg font-bold text-center">{Translate_text("Verify your email")}</div>
             {success ? (
               <div className="flex flex-col items-center">
-                <div className="text-center text-text-secondary">Email verified!</div>
+                <div className="text-center text-text-secondary">{Translate_text("Email verified!")}</div>
                 <a className="mt-4 font-bold underline text-text-link" href="/">
-                  Back to Liftosaur
+                  {Translate_text("Back to FORJA2.0")}
                 </a>
               </div>
             ) : (
               <div>
                 <div className="text-center text-text-secondary">
-                  Click the button below to confirm your email address.
+                  {Translate_text("Click the button below to confirm your email address.")}
                 </div>
                 {error && <div className="mt-2 text-xs text-center text-text-error">{error}</div>}
                 <div className="flex flex-col items-center mt-4">

@@ -1,4 +1,5 @@
 import { JSX, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import {
   IPaymentsDashboardData,
   IPaymentsDashboardUserAffiliate,
@@ -301,7 +302,7 @@ function formatCurrencyWithUSD(amount: number, currency?: string): JSX.Element {
     } else {
       return (
         <span>
-          {formatted} <span className="text-red-600">(no USD rate)</span>
+          {formatted} <span className="text-red-600">{Translate_text("(no USD rate)")}</span>
         </span>
       );
     }
@@ -554,28 +555,28 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
   return (
     <section className="py-16">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">Payments Dashboard</h2>
+        <h2 className="text-2xl font-bold">{Translate_text("Payments Dashboard")}</h2>
         <div className="flex gap-2">
           <button
             onClick={() => setViewMode("day")}
             className={`px-4 py-2 rounded ${viewMode === "day" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"}`}
           >
-            Daily
+            {Translate_text("Daily")}
           </button>
           <button
             onClick={() => setViewMode("month")}
             className={`px-4 py-2 rounded ${viewMode === "month" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"}`}
           >
-            Monthly
+            {Translate_text("Monthly")}
           </button>
         </div>
       </div>
 
       <div className="p-4 mb-8 bg-gray-100 rounded">
-        <h3 className="mb-2 text-lg font-semibold">Summary</h3>
+        <h3 className="mb-2 text-lg font-semibold">{Translate_text("Summary")}</h3>
         <div className="grid grid-cols-2 gap-4 md:grid-cols-6">
           <div>
-            <div className="text-sm text-gray-600">Total Revenue</div>
+            <div className="text-sm text-gray-600">{Translate_text("Total Revenue")}</div>
             <div>
               {Object.entries(currencyTotals)
                 .sort(([currencyA, totalsA], [currencyB, totalsB]) => {
@@ -593,18 +594,22 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                     </div>
                     {totalsByTypeAndCurrency[currency] && (
                       <div className="text-xs text-gray-600">
-                        Sub: {formatCurrencyWithUSD(totalsByTypeAndCurrency[currency].subscription, currency)}
+                        {Translate_text("Sub: ")}
+                        {formatCurrencyWithUSD(totalsByTypeAndCurrency[currency].subscription, currency)}
                         {totalsByTypeAndCurrency[currency].inapp > 0 && (
                           <span>
                             {" "}
-                            | IAP: {formatCurrencyWithUSD(totalsByTypeAndCurrency[currency].inapp, currency)}
+                            {Translate_text("| IAP: ")}
+                            {formatCurrencyWithUSD(totalsByTypeAndCurrency[currency].inapp, currency)}
                           </span>
                         )}
                       </div>
                     )}
                     {totalsByPlatformAndCurrency[currency] && (
                       <div className="text-xs text-gray-600">
-                        iOS: {formatCurrencyWithUSD(totalsByPlatformAndCurrency[currency].apple, currency)} | Android:{" "}
+                        {Translate_text("iOS: ")}
+                        {formatCurrencyWithUSD(totalsByPlatformAndCurrency[currency].apple, currency)}
+                        {Translate_text(" | Android:")}{" "}
                         {formatCurrencyWithUSD(totalsByPlatformAndCurrency[currency].google, currency)}
                       </div>
                     )}
@@ -612,45 +617,59 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                 ))}
               <div className="pt-2 mt-2 border-t">
                 <div className="text-xl font-bold text-green-700">
-                  Total USD: {formatCurrency(totalUSD - refundsUSD, "USD")}
+                  {Translate_text("Total USD: ")}
+                  {formatCurrency(totalUSD - refundsUSD, "USD")}
                 </div>
                 <div className="text-xs text-gray-600">
-                  Sub: {formatCurrency(totalSubscriptionUSD, "USD")}
+                  {Translate_text("Sub: ")}
+                  {formatCurrency(totalSubscriptionUSD, "USD")}
                   {totalInappUSD > 0 && ` | IAP: ${formatCurrency(totalInappUSD, "USD")}`}
                 </div>
                 <div className="text-xs text-gray-600">
-                  iOS: {formatCurrency(totalAppleUSD, "USD")} | Android: {formatCurrency(totalGoogleUSD, "USD")}
+                  {Translate_text("iOS: ")}
+                  {formatCurrency(totalAppleUSD, "USD")}
+                  {Translate_text(" | Android: ")}
+                  {formatCurrency(totalGoogleUSD, "USD")}
                 </div>
               </div>
             </div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Purchases</div>
+            <div className="text-sm text-gray-600">{Translate_text("Purchases")}</div>
             <div className="text-xl font-bold text-green-600">{totalPurchases}</div>
             <div className="text-xs text-gray-600">
-              Sub: {totalSubscriptionPurchases} | IAP: {totalInappPurchases}
+              {Translate_text("Sub: ")}
+              {totalSubscriptionPurchases}
+              {Translate_text(" | IAP: ")}
+              {totalInappPurchases}
             </div>
             <div className="text-xs text-gray-600">
-              iOS: {totalApplePurchases} | Android: {totalGooglePurchases}
+              {Translate_text("iOS: ")}
+              {totalApplePurchases}
+              {Translate_text(" | Android: ")}
+              {totalGooglePurchases}
             </div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Renewals</div>
+            <div className="text-sm text-gray-600">{Translate_text("Renewals")}</div>
             <div className="text-xl font-bold text-blue-600">{totalRenewals}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Cancellations</div>
+            <div className="text-sm text-gray-600">{Translate_text("Cancellations")}</div>
             <div className="text-xl font-bold text-orange-600">{summary.totalCancellations}</div>
             <div className="text-xs text-gray-600">
-              Monthly: {summary.monthlyCancellations} | Yearly: {summary.yearlyCancellations}
+              {Translate_text("Monthly: ")}
+              {summary.monthlyCancellations}
+              {Translate_text(" | Yearly: ")}
+              {summary.yearlyCancellations}
             </div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Refunds</div>
+            <div className="text-sm text-gray-600">{Translate_text("Refunds")}</div>
             <div className="text-xl font-bold text-red-600">{totalRefunds}</div>
           </div>
           <div>
-            <div className="text-sm text-gray-600">Free Trials</div>
+            <div className="text-sm text-gray-600">{Translate_text("Free Trials")}</div>
             <div className="text-xl font-bold text-purple-600">{totalFreeTrials}</div>
           </div>
         </div>
@@ -684,7 +703,8 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
             <div className="flex flex-col gap-1">
               <div className="flex gap-4 text-sm">
                 <span className="text-green-600">
-                  Purchases: {periodData.purchaseCount}
+                  {Translate_text("Purchases: ")}
+                  {periodData.purchaseCount}
                   {periodData.purchaseCount > 0 && (
                     <span className="text-xs">
                       {` (Sub: ${periodData.subscriptionPurchaseCount}`}
@@ -693,17 +713,31 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                     </span>
                   )}
                 </span>
-                <span className="text-blue-600">Renewals: {periodData.renewalCount}</span>
+                <span className="text-blue-600">
+                  {Translate_text("Renewals: ")}
+                  {periodData.renewalCount}
+                </span>
                 {periodData.cancellationCount > 0 && (
-                  <span className="text-orange-600">Cancellations: {periodData.cancellationCount}</span>
+                  <span className="text-orange-600">
+                    {Translate_text("Cancellations: ")}
+                    {periodData.cancellationCount}
+                  </span>
                 )}
-                {periodData.refundCount > 0 && <span className="text-red-600">Refunds: {periodData.refundCount}</span>}
+                {periodData.refundCount > 0 && (
+                  <span className="text-red-600">
+                    {Translate_text("Refunds: ")}
+                    {periodData.refundCount}
+                  </span>
+                )}
                 {periodData.freeTrialCount > 0 && (
-                  <span className="text-purple-600">Free Trials: {periodData.freeTrialCount}</span>
+                  <span className="text-purple-600">
+                    {Translate_text("Free Trials: ")}
+                    {periodData.freeTrialCount}
+                  </span>
                 )}
               </div>
               <div className="text-sm">
-                <div className="font-bold">Net:</div>
+                <div className="font-bold">{Translate_text("Net:")}</div>
                 {Object.entries(periodData.periodTotalsByCurrency)
                   .sort(([currencyA, totalsA], [currencyB, totalsB]) => {
                     // Convert to USD for sorting
@@ -723,14 +757,16 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                         <span className="font-semibold">{formatCurrencyWithUSD(netAmount, currency)}</span>
                         {typeData && (
                           <span className="ml-2 text-xs text-gray-600">
-                            Sub: {formatCurrencyWithUSD(typeData.subscription, currency)}, IAP:{" "}
-                            {formatCurrencyWithUSD(typeData.inapp, currency)}
+                            {Translate_text("Sub: ")}
+                            {formatCurrencyWithUSD(typeData.subscription, currency)}
+                            {Translate_text(", IAP:")} {formatCurrencyWithUSD(typeData.inapp, currency)}
                           </span>
                         )}
                         {platformData && (
                           <span className="ml-2 text-xs text-gray-600">
-                            | iOS: {formatCurrencyWithUSD(platformData.apple, currency)}, Android:{" "}
-                            {formatCurrencyWithUSD(platformData.google, currency)}
+                            {Translate_text("| iOS: ")}
+                            {formatCurrencyWithUSD(platformData.apple, currency)}
+                            {Translate_text(", Android:")} {formatCurrencyWithUSD(platformData.google, currency)}
                           </span>
                         )}
                       </div>
@@ -738,15 +774,18 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                   })}
                 <div className="pt-1 mt-1 ml-4 text-sm border-t">
                   <span className="font-semibold text-green-700">
-                    USD Total: {formatCurrency(periodData.dayTotalUSD - periodData.dayRefundsUSD, "USD")}
+                    {Translate_text("USD Total: ")}
+                    {formatCurrency(periodData.dayTotalUSD - periodData.dayRefundsUSD, "USD")}
                   </span>
                   <span className="ml-2 text-xs text-gray-600">
-                    Sub: {formatCurrency(periodData.daySubscriptionUSD, "USD")}, IAP:{" "}
-                    {formatCurrency(periodData.dayInappUSD, "USD")}
+                    {Translate_text("Sub: ")}
+                    {formatCurrency(periodData.daySubscriptionUSD, "USD")}
+                    {Translate_text(", IAP:")} {formatCurrency(periodData.dayInappUSD, "USD")}
                   </span>
                   <span className="ml-2 text-xs text-gray-600">
-                    | iOS: {formatCurrency(periodData.dayAppleUSD, "USD")}, Android:{" "}
-                    {formatCurrency(periodData.dayGoogleUSD, "USD")}
+                    {Translate_text("| iOS: ")}
+                    {formatCurrency(periodData.dayAppleUSD, "USD")}
+                    {Translate_text(", Android:")} {formatCurrency(periodData.dayGoogleUSD, "USD")}
                   </span>
                 </div>
               </div>
@@ -757,17 +796,23 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
             <table className="min-w-full text-sm">
               <thead>
                 <tr className="border-b">
-                  <th className="px-2 py-2 text-left">{viewMode === "month" ? "Start Date" : "Start Time"}, UTC</th>
-                  <th className="px-2 py-2 text-left">{viewMode === "month" ? "Date" : "Time"}, UTC</th>
-                  <th className="px-2 py-2 text-left">User ID</th>
-                  <th className="px-2 py-2 text-left">Transaction ID</th>
-                  <th className="px-2 py-2 text-left">Product</th>
-                  <th className="px-2 py-2 text-left">Type</th>
-                  <th className="px-2 py-2 text-left">Platform</th>
-                  <th className="px-2 py-2 text-left">Source</th>
-                  <th className="px-2 py-2 text-left">Offer</th>
-                  <th className="px-2 py-2 text-left">Affiliate</th>
-                  <th className="px-2 py-2 text-right">Amount</th>
+                  <th className="px-2 py-2 text-left">
+                    {viewMode === "month" ? "Start Date" : "Start Time"}
+                    {Translate_text(", UTC")}
+                  </th>
+                  <th className="px-2 py-2 text-left">
+                    {viewMode === "month" ? "Date" : "Time"}
+                    {Translate_text(", UTC")}
+                  </th>
+                  <th className="px-2 py-2 text-left">{Translate_text("User ID")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Transaction ID")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Product")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Type")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Platform")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Source")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Offer")}</th>
+                  <th className="px-2 py-2 text-left">{Translate_text("Affiliate")}</th>
+                  <th className="px-2 py-2 text-right">{Translate_text("Amount")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -802,7 +847,8 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                       {payment.paymentType}
                       {payment.isFreeTrialPayment && (
                         <span className="ml-1 text-purple-600">
-                          (trial{cancelledTrialUserIds.has(payment.userId) ? ", C" : ""})
+                          {Translate_text("(trial")}
+                          {cancelledTrialUserIds.has(payment.userId) ? ", C" : ""})
                         </span>
                       )}
                     </td>
@@ -856,8 +902,10 @@ export function PaymentsDashboardContent(props: IPaymentsDashboardContentProps):
                     <td className="px-2 py-2 font-mono text-xs text-gray-400">-</td>
                     <td className="px-2 py-2">{getProductType(cancellation.productId)}</td>
                     <td className="px-2 py-2 text-orange-600">
-                      cancellation
-                      {cancellation.wasTrialPayment && <span className="ml-1 text-purple-600">(trial)</span>}
+                      {Translate_text("cancellation")}
+                      {cancellation.wasTrialPayment && (
+                        <span className="ml-1 text-purple-600">{Translate_text("(trial)")}</span>
+                      )}
                     </td>
                     <td className="px-2 py-2 text-gray-400">-</td>
                     <td className="px-2 py-2 text-gray-400">-</td>

@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { CollectionUtils_compact } from "../../utils/collection";
 import { DateUtils_format } from "../../utils/date";
 
@@ -95,7 +96,7 @@ export function UsersDashboardContent(props: IUsersDashboardContentProps): JSX.E
 
   return (
     <section className="py-16">
-      <h2 className="mb-4 text-2xl font-bold">Users</h2>
+      <h2 className="mb-4 text-2xl font-bold">{Translate_text("Users")}</h2>
       {data.map((monthGroup, mi) => {
         const activeMontlyCount = monthGroup.reduce((acc, dayGroup) => acc + dayGroup.length, 0);
         const activeMonthlyRegisteredCount = monthGroup.reduce(
@@ -118,8 +119,13 @@ export function UsersDashboardContent(props: IUsersDashboardContentProps): JSX.E
               {new Date(monthGroup[0][0].lastAction.ts).toLocaleString("en-us", { month: "long" })}
               <span>
                 {" "}
-                - {activeMontlyCount} active users, {activeMonthlyRegisteredCount} registered, {newThisMonth} new,{" "}
-                {newRegisteredThisMonth} new registered
+                - {activeMontlyCount}
+                {Translate_text(" active users, ")}
+                {activeMonthlyRegisteredCount}
+                {Translate_text(" registered, ")}
+                {newThisMonth}
+                {Translate_text(" new,")} {newRegisteredThisMonth}
+                {Translate_text(" new registered")}
               </span>
             </h3>
             {monthGroup.map((dayGroup, di) => {
@@ -135,24 +141,29 @@ export function UsersDashboardContent(props: IUsersDashboardContentProps): JSX.E
                     {DateUtils_format(dayGroup[0].lastAction.ts)}
                     <span>
                       {" "}
-                      - {activeCount} active users, {activeRegisteredCount} registered, {newThisDay} new,{" "}
-                      {newRegisteredThisDay} new registered
+                      - {activeCount}
+                      {Translate_text(" active users, ")}
+                      {activeRegisteredCount}
+                      {Translate_text(" registered, ")}
+                      {newThisDay}
+                      {Translate_text(" new,")} {newRegisteredThisDay}
+                      {Translate_text(" new registered")}
                     </span>
                   </h4>
                   <table className="w-full text-left" cellPadding={4}>
                     <thead>
                       <tr>
-                        <th>User ID</th>
-                        <th>Last</th>
-                        <th>First</th>
-                        <th>Workouts</th>
-                        <th>Days</th>
-                        <th>Programs</th>
-                        <th>Platforms</th>
-                        <th>Affiliates</th>
-                        <th>Review Reqs</th>
-                        <th>Signup Reqs</th>
-                        <th>Free Exp</th>
+                        <th>{Translate_text("User ID")}</th>
+                        <th>{Translate_text("Last")}</th>
+                        <th>{Translate_text("First")}</th>
+                        <th>{Translate_text("Workouts")}</th>
+                        <th>{Translate_text("Days")}</th>
+                        <th>{Translate_text("Programs")}</th>
+                        <th>{Translate_text("Platforms")}</th>
+                        <th>{Translate_text("Affiliates")}</th>
+                        <th>{Translate_text("Review Reqs")}</th>
+                        <th>{Translate_text("Signup Reqs")}</th>
+                        <th>{Translate_text("Free Exp")}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -220,7 +231,10 @@ export function UsersDashboardContent(props: IUsersDashboardContentProps): JSX.E
                                   {item.subscriptionDetails.promoCode && (
                                     <div>{item.subscriptionDetails.promoCode}</div>
                                   )}
-                                  <div>Exp: {DateUtils_format(item.subscriptionDetails.expires)}</div>
+                                  <div>
+                                    {Translate_text("Exp: ")}
+                                    {DateUtils_format(item.subscriptionDetails.expires)}
+                                  </div>
                                 </div>
                               )}
                             </td>

@@ -1,4 +1,5 @@
 import { JSX, useEffect, useRef, useState } from "react";
+import { Translate_text } from "../i18n/translate";
 import { IExerciseType, ISettings } from "../types";
 import { ExerciseImage } from "./exerciseImage";
 import { Exercise_targetMusclesGroups, Exercise_synergistMusclesGroups } from "../models/exercise";
@@ -104,7 +105,7 @@ export function ExerciseTooltip(props: {
               <div className="text-sm font-semibold">{props.name}</div>
               {targetMuscles.length > 0 && (
                 <div>
-                  <span className="font-semibold text-text-secondary">Target: </span>
+                  <span className="font-semibold text-text-secondary">{Translate_text("Target: ")}</span>
                   <span className="font-normal">
                     {targetMuscles.map((m) => Muscle_getMuscleGroupName(m, props.settings)).join(", ")}
                   </span>
@@ -112,7 +113,7 @@ export function ExerciseTooltip(props: {
               )}
               {synergistMuscles.length > 0 && (
                 <div>
-                  <span className="font-semibold text-text-secondary">Synergist: </span>
+                  <span className="font-semibold text-text-secondary">{Translate_text("Synergist: ")}</span>
                   <span className="font-normal">
                     {synergistMuscles.map((m) => Muscle_getMuscleGroupName(m, props.settings)).join(", ")}
                   </span>

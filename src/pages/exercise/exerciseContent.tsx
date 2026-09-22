@@ -1,4 +1,5 @@
 import { JSX, ReactNode, Ref, forwardRef, useEffect, useRef, useState } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { ExerciseImage } from "../../components/exerciseImage";
 import { ExerciseItem } from "../../components/modalExercise";
 import { Multiselect } from "../../components/multiselect";
@@ -131,11 +132,11 @@ export function ExerciseContent(props: IExerciseContentProps): JSX.Element {
       <div id="app" style={{ maxWidth, margin: "0 auto", width: "100%" }}>
         <nav className="px-4 pt-2 pb-2 text-xs text-text-secondary" aria-label="Breadcrumb">
           <a href="/" className="underline hover:text-text-primary">
-            Home
+            {Translate_text("Home")}
           </a>
           <span className="mx-1">/</span>
           <a href="/exercises" className="underline hover:text-text-primary">
-            Exercises
+            {Translate_text("Exercises")}
           </a>
           <span className="mx-1">/</span>
           <span className="text-text-primary">{name}</span>
@@ -152,7 +153,7 @@ export function ExerciseContent(props: IExerciseContentProps): JSX.Element {
             </div>
           </div>
           <div className="hidden w-48 md:w-64 sm:block">
-            <div className="text-lg font-bold">Exercises</div>
+            <div className="text-lg font-bold">{Translate_text("Exercises")}</div>
             <ExerciseListWrapper
               ref={column1Ref}
               exercise={exercise}
@@ -187,7 +188,7 @@ export function ExerciseContent(props: IExerciseContentProps): JSX.Element {
       )}
       {isExercisesOpen && (
         <Modal onClose={() => setIsExercisesOpen(false)} shouldShowClose={true} isFullWidth={true}>
-          <div className="w-full text-lg font-bold text-center">Exercises</div>
+          <div className="w-full text-lg font-bold text-center">{Translate_text("Exercises")}</div>
           <ExerciseListWrapper
             insideModal={true}
             ref={column1Ref}
@@ -224,7 +225,11 @@ function ExerciseDescription(props: IExerciseDescriptionProps): JSX.Element {
   }
   return (
     <div>
-      <h1 className="mb-4 text-2xl font-bold">How to perform {props.name} with proper form</h1>
+      <h1 className="mb-4 text-2xl font-bold">
+        {Translate_text("How to perform ")}
+        {props.name}
+        {Translate_text(" with proper form")}
+      </h1>
       <div className="relative w-full mb-4" style={{ paddingBottom: video ? "56.25%" : 0 }}>
         <div className="absolute inset-0">
           <YoutubePlayer video={video} />
@@ -429,9 +434,9 @@ function MuscleGroups(props: IMuscleGroupsProps): JSX.Element {
   return (
     <div className="pb-8">
       <ExerciseImage size="large" exerciseType={props.exerciseType} />
-      <div className="pb-1 text-lg font-bold">Muscle Groups</div>
+      <div className="pb-1 text-lg font-bold">{Translate_text("Muscle Groups")}</div>
       <div className="pb-8">
-        <div className="font-bold">Type</div>
+        <div className="font-bold">{Translate_text("Type")}</div>
         <ul className="pb-2 ml-4 list-disc">
           {types.map((t) => {
             return (
@@ -444,22 +449,22 @@ function MuscleGroups(props: IMuscleGroupsProps): JSX.Element {
             );
           })}
         </ul>
-        <div className="font-bold">Target</div>
+        <div className="font-bold">{Translate_text("Target")}</div>
         <ul className="pb-2 ml-4 list-disc">
           {targetMuscleGroups.map((m) => (
             <MuscleGroupItem key={m} type={m} exerciseType={props.exerciseType} setFilterTypes={props.setFilterTypes} />
           ))}
         </ul>
-        <div className="font-bold">Synergist</div>
+        <div className="font-bold">{Translate_text("Synergist")}</div>
         <ul className="pb-2 ml-4 list-disc">
           {synergistMuscleGroups.map((m) => (
             <MuscleGroupItem key={m} type={m} exerciseType={props.exerciseType} setFilterTypes={props.setFilterTypes} />
           ))}
         </ul>
       </div>
-      <div className="pb-1 text-lg font-bold">Muscles</div>
+      <div className="pb-1 text-lg font-bold">{Translate_text("Muscles")}</div>
       <div>
-        <div className="font-bold">Target</div>
+        <div className="font-bold">{Translate_text("Target")}</div>
         <ul className="pb-2 ml-4 list-disc">
           {targetMuscles.map((m) => (
             <li key={m} className="relative">
@@ -472,7 +477,7 @@ function MuscleGroups(props: IMuscleGroupsProps): JSX.Element {
             </li>
           ))}
         </ul>
-        <div className="font-bold">Synergist</div>
+        <div className="font-bold">{Translate_text("Synergist")}</div>
         <ul className="pb-2 ml-4 list-disc">
           {synergistMuscles.map((m) => (
             <li key={m} className="relative">

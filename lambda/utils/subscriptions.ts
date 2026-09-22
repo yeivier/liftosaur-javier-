@@ -332,7 +332,7 @@ export class Subscriptions {
       return null;
     }
     if (APPLE_PRODUCT_IDS.indexOf(payload.productId) === -1) {
-      this.log.log(`JWS productId ${payload.productId} is not a Liftosaur product`);
+      this.log.log(`JWS productId ${payload.productId} is not a FORJA2.0 product`);
       return null;
     }
     return payload;

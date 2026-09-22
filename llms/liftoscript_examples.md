@@ -20,7 +20,7 @@ Deadlift / 2x5, 1x5+ / 95lb / progress: lp(5lb, 1, 0, 10%, 1, 0)
 ## 5/3/1 for beginners
 
 3-week program, using 5/3/1 set scheme for main lifts. On finishing 3rd week it adds weight to 1RM.
-It uses 1RM percentages for weights instead of Training Max percentages like in the original program, because Liftosaur doesn't have the concept of Training Max.
+It uses 1RM percentages for weights instead of Training Max percentages like in the original program, because FORJA2.0 doesn't have the concept of Training Max.
 
 Here we use a "template" `main`, and all the main lifts just reuse it, so we could keep the logic in one place, and if we change it - it applies to all the main exercises.
 
@@ -448,11 +448,11 @@ The bi-weekly waving patterns of weight change and gradual reducing of volume an
 
 In The Rippler program, we use the 2 rep max (2RM) weight as a basis. This is a 12-week program, where the weight for T1 and T2 exercises changes each week according to a specific pattern.
 
-For T1 exercises, we increase the weight for 2 weeks, then slightly decrease it, and increase it even more in week 4. This pattern repeats through 4-week blocks. We'll have three 4-week blocks. We use 2 rep max (2RM) as a base weight for T1 exercises. So, for first 4 weeks we do 85%, 87.5%, 90%, 92.5% of 2RM weight. Liftosaur uses 1RM as a basis for the programs though, so the weights are converted into 1RM.
+For T1 exercises, we increase the weight for 2 weeks, then slightly decrease it, and increase it even more in week 4. This pattern repeats through 4-week blocks. We'll have three 4-week blocks. We use 2 rep max (2RM) as a base weight for T1 exercises. So, for first 4 weeks we do 85%, 87.5%, 90%, 92.5% of 2RM weight. FORJA2.0 uses 1RM as a basis for the programs though, so the weights are converted into 1RM.
 
-For T2 exercises, we gradually increase the weights over 3 weeks (e.g., 80%, 85%, 90%), then reset to 82.5%, and increase again (82.5%, 87.5%, 92.5%). We repeat this pattern over four 3-week blocks, creating a wave-like pattern. We use 5 rep max (5RM) as a base weight for T2 exercises. We skip T2 exercises completely on weeks 11 and 12. Again, the weights in Liftosaur are converted into % of 1RM.
+For T2 exercises, we gradually increase the weights over 3 weeks (e.g., 80%, 85%, 90%), then reset to 82.5%, and increase again (82.5%, 87.5%, 92.5%). We repeat this pattern over four 3-week blocks, creating a wave-like pattern. We use 5 rep max (5RM) as a base weight for T2 exercises. We skip T2 exercises completely on weeks 11 and 12. Again, the weights in FORJA2.0 are converted into % of 1RM.
 
-For T3 exercises, we don't vary the weight, but aim to do the maximum reps each time. Start with a weight you can lift for 10 reps, then do as many reps as you can, leaving 1-2 reps in reserve. It's better to err on the side of lighter weights. If the weight you choose is too light, the Liftosaur app will automatically adjust and increase the weight as needed in weeks 3, 6, and 9.
+For T3 exercises, we don't vary the weight, but aim to do the maximum reps each time. Start with a weight you can lift for 10 reps, then do as many reps as you can, leaving 1-2 reps in reserve. It's better to err on the side of lighter weights. If the weight you choose is too light, the FORJA2.0 app will automatically adjust and increase the weight as needed in weeks 3, 6, and 9.
 
 Starting from week 11, you'll begin preparing for the 1RM test. You won't perform the T2 and T3 exercises at all during this period. On week 11, you will do heavy 2RMs of T1, and on week 12, you'll test your 1RM, and enjoy your new PRs!
 

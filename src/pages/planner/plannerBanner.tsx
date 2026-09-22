@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../../i18n/translate";
 import { Button } from "../../components/button";
 import { IconLink } from "../../components/icons/iconLink";
 import { IAccount } from "../../models/account";
@@ -29,19 +30,23 @@ export function PlannerBanner(props: IPlannerBannerProps): JSX.Element {
 function LoggedInGuideBanner(props: { onAddProgram: () => void; isBannerLoading: boolean }): JSX.Element {
   return (
     <div className="flex-1">
-      To use this program:
+      {Translate_text("To use this program:")}
       <div>
         <Button style={{ width: "18rem" }} kind="purple" name="add-program-to-account" onClick={props.onAddProgram}>
           {props.isBannerLoading ? <IconSpinner width={20} height={20} /> : "Add this program to your account"}
         </Button>
       </div>
-      <div className="font-bold">OR</div>
+      <div className="font-bold">{Translate_text("OR")}</div>
       <ul className="pl-4 list-disc">
         <li>
-          Copy the link to this program by clicking on <IconLink className="inline-block" size={16} /> below
+          {Translate_text("Copy the link to this program by clicking on ")}
+          <IconLink className="inline-block" size={16} />
+          {Translate_text(" below")}
         </li>
         <li>
-          Import the link in the app, on the <strong>Choose Program</strong> screen.
+          {Translate_text("Import the link in the app, on the ")}
+          <strong>{Translate_text("Choose Program")}</strong>
+          {Translate_text(" screen.")}
         </li>
       </ul>
     </div>
@@ -55,14 +60,18 @@ function LoggedOutGuideBanner(props: { userAgent?: string }): JSX.Element {
   return (
     <>
       <div className="flex-1">
-        To use this program:
+        {Translate_text("To use this program:")}
         <ul className="pl-4 list-disc">
-          <li>Install Liftosaur app</li>
+          <li>{Translate_text("Install FORJA2.0 app")}</li>
           <li>
-            Copy the link to this program by clicking on <IconLink className="inline-block" size={16} /> below
+            {Translate_text("Copy the link to this program by clicking on ")}
+            <IconLink className="inline-block" size={16} />
+            {Translate_text(" below")}
           </li>
           <li>
-            Import the link in the app, on the <strong>Choose Program</strong> screen.
+            {Translate_text("Import the link in the app, on the ")}
+            <strong>{Translate_text("Choose Program")}</strong>
+            {Translate_text(" screen.")}
           </li>
         </ul>
       </div>

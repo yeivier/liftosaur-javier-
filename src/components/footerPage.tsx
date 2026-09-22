@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import { Translate_text } from "../i18n/translate";
 import { IconInstagramFlat } from "./icons/iconInstagramFlat";
 import { IconYoutube } from "./icons/iconYoutube";
 import { IconReddit } from "./icons/iconReddit";
@@ -34,9 +35,9 @@ export function FooterPage(props: IProps): JSX.Element {
             </div>
 
             <div className="shrink-0">
-              <div className="pt-8 text-3xl font-bold text-text-alwayswhite md:pt-0">Liftosaur</div>
+              <div className="pt-8 text-3xl font-bold text-text-alwayswhite md:pt-0">{Translate_text("FORJA2.0")}</div>
               <div className="flex items-center gap-4 mt-5">
-                <span className="text-sm text-text-alwayswhite">Follow us:</span>
+                <span className="text-sm text-text-alwayswhite">{Translate_text("Follow us:")}</span>
                 <a
                   href="https://www.instagram.com/liftosaurapp"
                   target="_blank"
@@ -55,9 +56,9 @@ export function FooterPage(props: IProps): JSX.Element {
                 </a>
               </div>
               <div className="mt-4 text-sm text-text-alwayswhite">
-                Questions?{" "}
+                {Translate_text("Questions?")}{" "}
                 <a href="mailto:info@liftosaur.com" className="text-purple-300 underline">
-                  info@liftosaur.com
+                  {Translate_text("info@liftosaur.com")}
                 </a>
               </div>
             </div>
@@ -82,7 +83,7 @@ export function FooterPage(props: IProps): JSX.Element {
                     (window as unknown as { lftConsent?: { open: () => void } }).lftConsent?.open();
                   }}
                 >
-                  Privacy Settings
+                  {Translate_text("Privacy Settings")}
                 </a>
               </div>
             </div>

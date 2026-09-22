@@ -3,6 +3,7 @@ import { UidFactory_generateUid } from "../utils/generator";
 import { StringUtils_dashcase } from "../utils/string";
 import { IEither } from "../utils/types";
 import { MathUtils_normalizeNumStr } from "../utils/math";
+import { Translate_maybe } from "../i18n/translate";
 
 export const inputClassName =
   "inline-block w-full px-4 text-base py-2 leading-normal bg-background-default border border-border-prominent rounded-lg appearance-none focus:outline-none focus:shadow-outline text-base";
@@ -189,11 +190,13 @@ export const Input = forwardRef((props: IProps, ref: Ref<HTMLInputElement> | Ref
     containerClassName += " w-full";
   }
   const labelSizeVal = labelSizeProp || "sm";
+  const translatedLabel = Translate_maybe(label);
+  const translatedPlaceholder = Translate_maybe(otherProps.placeholder);
   return (
     <div className={containerClassName}>
       {label && isLabelOutside && (
         <div className={`leading-none ${labelSizeVal === "xs" ? "text-xs" : "text-sm"} text-text-secondary pb-1`}>
-          {label}
+          {translatedLabel}
         </div>
       )}
       <label
@@ -212,7 +215,7 @@ export const Input = forwardRef((props: IProps, ref: Ref<HTMLInputElement> | Ref
               className={`leading-none relative ${labelSizeVal === "xs" ? "text-xs" : "text-sm"} text-text-secondary`}
               style={{ top: "2px", left: "0" }}
             >
-              {label}
+              {translatedLabel}
             </div>
           )}
           <div className="relative flex" style={{ top: label ? "3px" : "8px", left: "0" }}>
@@ -241,6 +244,7 @@ export const Input = forwardRef((props: IProps, ref: Ref<HTMLInputElement> | Ref
                 className="flex-1 w-0 min-w-0 text-base border-none focus:outline-none bg-background-default"
                 style={{ fontSize: size === "md" ? "16px" : "15px", height: `${multiline * 25}px` }}
                 {...otherProps}
+                placeholder={translatedPlaceholder}
               />
             ) : (
               <input
@@ -267,6 +271,7 @@ export const Input = forwardRef((props: IProps, ref: Ref<HTMLInputElement> | Ref
                 className="flex-1 w-0 min-w-0 text-base border-none focus:outline-none bg-background-default"
                 style={{ height: "1.25rem", fontSize: size === "md" ? "16px" : "15px" }}
                 {...otherProps}
+                placeholder={translatedPlaceholder}
               />
             )}
           </div>
@@ -274,7 +279,7 @@ export const Input = forwardRef((props: IProps, ref: Ref<HTMLInputElement> | Ref
       </label>
       {errorMessages.map((message) => (
         <div className="text-xs text-left text-text-error" key={message}>
-          {message}
+          {Translate_maybe(message)}
         </div>
       ))}
     </div>

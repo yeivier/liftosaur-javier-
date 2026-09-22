@@ -43,6 +43,7 @@ import { Program_changeExerciseName } from "./program";
 import { EditProgram_updateProgram } from "./editProgram";
 import { lb } from "lens-shmens";
 import { updateSettings } from "./state";
+import { Translate_searchableName } from "../i18n/searchableName";
 
 export const allExercisesList: Record<IExerciseId, IExercise> = {
   abWheel: {
@@ -4249,12 +4250,16 @@ export function Exercise_searchNames(query: string, customExercises: IAllCustomE
     .filter((e) =>
       StringUtils_fuzzySearch(
         query.toLowerCase(),
-        `${e.name}${e.equipment ? `, ${equipmentName(e.equipment)}` : ""}`.toLowerCase()
+        `${Translate_searchableName(e.name)}${
+          e.equipment ? `, ${Translate_searchableName(equipmentName(e.equipment))}` : ""
+        }`
       )
     )
     .map((e) => `${e.name}${e.equipment ? `, ${equipmentName(e.equipment)}` : ""}`);
   const customExerciseNames = ObjectUtils_values(customExercises)
-    .filter((ce) => (ce && !ce.isDeleted ? StringUtils_fuzzySearch(query.toLowerCase(), ce.name.toLowerCase()) : false))
+    .filter((ce) =>
+      ce && !ce.isDeleted ? StringUtils_fuzzySearch(query.toLowerCase(), Translate_searchableName(ce.name)) : false
+    )
     .map((e) => e!.name);
   const names = [...exerciseNames, ...customExerciseNames];
   names.sort();
@@ -5093,7 +5098,7 @@ export function Exercise_createOrUpdateCustomExercise(
 }
 
 export function Exercise_filterExercises<T extends { name: string }>(allExercises: T[], filter: string): T[] {
-  return allExercises.filter((e) => StringUtils_fuzzySearch(filter.toLowerCase(), e.name.toLowerCase()));
+  return allExercises.filter((e) => StringUtils_fuzzySearch(filter.toLowerCase(), Translate_searchableName(e.name)));
 }
 
 function scoreTokenAgainstWords(
@@ -5305,7 +5310,7 @@ export function Exercise_filterCustomExercises(
   filter: string
 ): IAllCustomExercises {
   return ObjectUtils_filter(customExercises, (e, v) =>
-    v && !v.isDeleted ? StringUtils_fuzzySearch(filter.toLowerCase(), v.name.toLowerCase()) : false
+    v && !v.isDeleted ? StringUtils_fuzzySearch(filter.toLowerCase(), Translate_searchableName(v.name)) : false
   );
 }
 

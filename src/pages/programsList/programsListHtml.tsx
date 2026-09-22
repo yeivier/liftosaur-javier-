@@ -14,7 +14,7 @@ interface IProps {
 
 export function ProgramsListHtml(props: IProps): JSX.Element {
   const { client, ...data } = props;
-  const title = "Your Programs List | Liftosaur";
+  const title = "Your Programs List | FORJA2.0";
   const url = "https://www.liftosaur.com/user/programs";
 
   return (

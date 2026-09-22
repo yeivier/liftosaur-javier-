@@ -1,4 +1,5 @@
 import { JSX, useRef } from "react";
+import { Translate_text } from "../../../i18n/translate";
 import { ProgramCard } from "./programCard";
 import { ISettings } from "../../../types";
 import { StringUtils_pluralize } from "../../../utils/string";
@@ -32,7 +33,7 @@ export function ProgramsTabContent(props: IProgramsTabContentProps): JSX.Element
         </div>
       ) : (
         <div className="px-6 py-12 text-lg text-center text-text-secondarysubtle">
-          No programs found with selected filters
+          {Translate_text("No programs found with selected filters")}
         </div>
       )}
     </div>

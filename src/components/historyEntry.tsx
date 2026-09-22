@@ -69,7 +69,9 @@ export const HistoryEntryView = memo((props: IHistoryEntryProps): JSX.Element =>
             </Text>
             {showNotes && entry.notes && (
               <View>
-                <Text className="mt-1 text-sm text-text-secondary">{entry.notes}</Text>
+                <Text className="mt-1 text-sm text-text-secondary" noTranslate={true}>
+                  {entry.notes}
+                </Text>
               </View>
             )}
           </View>
