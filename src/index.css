@@ -9,6 +9,18 @@
   :host {
     -webkit-tap-highlight-color: revert;
   }
+
+  /* The color tokens (tailwind.colors.json/tailwind.semantic.json) cover every CSS-driven
+     color already, so this is a no-op there - but react-native-web paints Image as a div
+     with a background-image, not an <img>, so a tag selector can't reach it. A filter
+     desaturates every raster/video asset (onboarding art, exercise photos, share-card
+     JPGs, the Google/Apple sign-in button icons) in one rule, with zero visible effect on
+     anything already gray. On <html>, not #app: bottomSheet.tsx's createPortal - and every
+     other sheet/modal built on it - mounts outside the #app subtree, so scoping this to
+     #app left every modal's images and icons in full color. */
+  html {
+    filter: grayscale(1);
+  }
 }
 
 @import "./fonts.css";
