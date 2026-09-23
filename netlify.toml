@@ -9,3 +9,9 @@
 [build.environment]
   NODE_VERSION = "22"
   NODE_OPTIONS = "--max-old-space-size=4096"
+  # android/app/google-services.json carries Firebase's standard client api_key. It is
+  # not a secret - Firebase documents it as safe to commit, restricted server-side by
+  # package name and SHA fingerprint, not by keeping it private. Netlify's secrets
+  # scanner flags any AIza-prefixed string with no way to tell the two apart, so this
+  # skips that one file rather than disabling the scan.
+  SECRETS_SCAN_OMIT_PATHS = "android/app/google-services.json"
