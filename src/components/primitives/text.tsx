@@ -14,7 +14,18 @@ export function Text_resolveFontFamily(className: string | undefined): string {
   return resolveFontFamily(className);
 }
 
+// San Francisco itself isn't a downloadable webfont; this is the system-font trick every
+// Apple-made web page (apple.com included) uses to get it: browsers resolve the -apple-system
+// keyword to San Francisco on macOS/iOS, and each OS falls through to its own native UI font
+// otherwise (Segoe UI on Windows, Roboto on Android Chrome), which is the closest a website
+// gets to "looks native" cross-platform.
+const APPLE_SYSTEM_FONT_STACK =
+  '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
 function resolveFontFamily(className: string | undefined): string {
+  if (Platform.OS === "web") {
+    return APPLE_SYSTEM_FONT_STACK;
+  }
   if (Platform.OS !== "android") {
     return "Poppins";
   }
